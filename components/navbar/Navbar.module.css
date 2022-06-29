@@ -1,0 +1,271 @@
+.header {
+	width: 100%;
+	height: 5rem;
+	/* padding: 0 2rem; */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2rem 4rem;
+	width: 100vw;
+	height: 10vh;
+	margin: 0;
+	top: 0;
+	left: 0;
+	background-color: var(--color-bg);
+	color: var(--color-text);
+	position: fixed;
+	z-index: 999;
+	font-size: 1rem;
+	font-weight: 500;
+	line-height: 2rem;
+	text-transform: capitalize;
+}
+
+/* Logo Container */
+.logo {
+	width: 5rem;
+	height: 5rem;
+	margin-top: 1rem;
+	margin-left: 2rem;
+	cursor: pointer;
+	position: relative;
+}
+
+.logo Image {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+.logo::before {
+	content: "Burger Up!";
+	position: absolute;
+	top: 5%;
+	left: 0;
+	z-index: 1;
+	font-family: "Indie Flower", cursive, sans-serif;
+	font-weight: 900;
+	font-size: 2rem;
+	line-height: 1.5rem;
+	text-align: center;
+	transform: rotate(-10deg);
+	text-transform: uppercase;
+}
+
+.header nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.2rem;
+}
+
+.header nav ul {
+	display: flex;
+	justify-content: space-evenly;
+	gap: 2rem;
+}
+
+.header nav ul a,
+.iconContainer {
+	margin: 0 2rem;
+	cursor: pointer;
+	transition: 200ms all ease-in-out;
+}
+
+.header nav ul a.active {
+	border-bottom: 2px solid var(--color-primary);
+}
+
+.iconContainer {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 0.2rem;
+	gap: 3rem;
+	position: relative;
+}
+
+.cartnumber {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.cartnumber svg {
+	font-size: 1.5rem;
+}
+
+.cartnumber div {
+	background-color: var(--color-primary);
+	border-radius: 50%;
+	width: 1.5rem;
+	height: 1.5rem;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 0.8rem;
+	top: 0;
+	left: 8%;
+}
+
+.iconContainer button {
+	padding: 0.8rem 1.2rem;
+	background-color: var(--color-secondary);
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	min-width: 5rem;
+	text-transform: capitalize;
+	color: var(--color-text);
+	box-shadow: 1px 5px 20px var(--color-secondary);
+}
+
+/* Mobile Menu (Hamburger Menu) */
+.mobileContainer {
+	display: none;
+	position: relative;
+	margin-left: 1rem;
+}
+
+.mobileContainer svg {
+	cursor: pointer;
+	color: var(--color-button);
+}
+
+.mobileLinks {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 3rem 2rem;
+	gap: 2rem;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin-top: 1.2rem;
+	/* width: 90vw;
+    height: 60vh; */
+	border-radius: 5px;
+	background-color: var(--color-bg);
+	backdrop-filter: blur(150px);
+	/* border: 1px solid green; */
+}
+.mobileLinks ul {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	gap: 2rem;
+}
+
+.mobileLinks li {
+	color: var(--color-text);
+	font-weight: 500;
+	font-size: 2rem;
+	line-height: 2.5rem;
+	text-transform: capitalize;
+	margin: 1rem 0;
+	cursor: pointer;
+}
+
+.mobileLinks .buttonContainer {
+	display: none;
+}
+/* you can create custom css animations using this tool - www.animista.net */
+/* Click on "Copy Class" from the website - animista.net and paste the code here first */
+.scaleUpCenter {
+	-webkit-animation: scaleUpCenter 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+	animation: scaleUpCenter 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+/* Click on "Copy Keyframes" from the website - animista.net and paste the code here second */
+@-webkit-keyframes scaleUpCenter {
+	0% {
+		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
+	}
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
+@keyframes scaleUpCenter {
+	0% {
+		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
+	}
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
+/* Media Queris */
+/* Larger Devices  - any size below 1050px will be affected by this query */
+@media screen and (max-width: 1050px) {
+	.header nav {
+		display: none;
+	}
+
+	.mobileContainer {
+		display: block;
+	}
+
+	.mobileLinks {
+		top: 3rem;
+		margin-top: 1.2rem;
+		width: 80vw;
+		height: 100vh;
+	}
+
+	.mobileLinks .buttonContainer {
+		display: block;
+	}
+
+	.mobileLinks .buttonContainer button {
+		margin: 3rem 0;
+	}
+}
+/* Tablet Devices  - any size below 700px will be affected by this query */
+@media screen and (max-width: 700px) {
+	.header {
+		padding: 2rem 4rem;
+	}
+	.mobileLinks {
+		top: 3rem;
+		margin-top: 1.2rem;
+
+		/* width: 80vw;
+      height: 70vh; */
+	}
+}
+/* Mobile Devices  - any size below 550px will be affected by this query */
+@media screen and (max-width: 550px) {
+	.header {
+		padding: 2rem;
+	}
+	.buttonContainer {
+		display: none;
+	}
+	.mobileLinks {
+		top: 3rem;
+		margin-top: 1.2rem;
+		width: 88vw;
+		height: 100vh;
+	}
+
+	.mobileLinks .buttonContainer {
+		display: block;
+	}
+
+	.mobileLinks .buttonContainer button {
+		margin: 3rem 0;
+	}
+}

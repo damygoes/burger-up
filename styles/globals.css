@@ -1,16 +1,105 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@import url("https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap");
 
-a {
-  color: inherit;
-  text-decoration: none;
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+
+:root {
+	--font-family: "Baskervville", sans-serif;
+	--color-main: #1d1c1c;
+	--linear-bg: linear-gradient(
+		130deg,
+		#7f7c7c 0%,
+		#1d1c1c 15%,
+		#1d1c1c 67%,
+		#1d1c1c 82%,
+		#5d262c 100%
+	);
+	--color-primary: #e2293f;
+	--color-secondary: #41c485;
+	--color-accent: #f3b404;
+	--color-text: #fff;
 }
 
 * {
-  box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	background: var(--linear-bg);
+	font-family: var(--font-family);
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+li {
+	list-style-type: none;
+}
+
+/* Created the linear background using www.angrytools.com/gradient */
+.gradientBG {
+	/* ff 3.6+ */
+	background: -moz-linear-gradient(
+		130deg,
+		#7f7c7c 0%,
+		#1d1c1c 15%,
+		#1d1c1c 67%,
+		#1d1c1c 82%,
+		#5d262c 100%
+	);
+
+	/* safari 5.1+,chrome 10+ */
+	background: -webkit-linear-gradient(
+		130deg,
+		#7f7c7c 0%,
+		#1d1c1c 15%,
+		#1d1c1c 67%,
+		#1d1c1c 82%,
+		#5d262c 100%
+	);
+
+	/* opera 11.10+ */
+	background: -o-linear-gradient(
+		130deg,
+		#7f7c7c 0%,
+		#1d1c1c 15%,
+		#1d1c1c 67%,
+		#1d1c1c 82%,
+		#5d262c 100%
+	);
+
+	/* ie 6-9 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5D262C', endColorstr='#7F7C7C', GradientType=0 );
+
+	/* ie 10+ */
+	background: -ms-linear-gradient(
+		130deg,
+		#7f7c7c 0%,
+		#1d1c1c 15%,
+		#1d1c1c 67%,
+		#1d1c1c 82%,
+		#5d262c 100%
+	);
+
+	/* global 94%+ browsers support */
+	background: linear-gradient(
+		130deg,
+		#7f7c7c 0%,
+		#1d1c1c 15%,
+		#1d1c1c 67%,
+		#1d1c1c 82%,
+		#5d262c 100%
+	);
 }
