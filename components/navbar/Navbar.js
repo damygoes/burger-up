@@ -78,7 +78,7 @@ const Navbar = () => {
 						</div>
 					</div>
 
-					<p> sign in </p>
+					<p> log in </p>
 					<button> sign up </button>
 				</div>
 				<div className={styles.mobileContainer}>
@@ -88,12 +88,11 @@ const Navbar = () => {
 						<GiHamburgerMenu size={37} onClick={() => setToggleMenu(true)} />
 					)}
 					{toggleMenu && (
-						<div className={styles.mobileLinks + " " + styles.scaleUpCenter}>
+						<div className={styles.mobileLinks + " " + styles.slideLeft}>
 							<div>
 								<Menu />
-								<IoBag />
-								<div className={styles.buttonContainer}>
-									<p> sign in </p>
+								<div className={styles.iconContainer}>
+									<p> log in </p>
 									<button> sign up </button>
 								</div>
 							</div>
