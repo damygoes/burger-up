@@ -21,6 +21,13 @@
 	text-transform: capitalize;
 }
 
+/* ############################ */
+
+.active {
+	background-color: red;
+}
+/* ############################ */
+
 /* Logo Container */
 .logo {
 	width: 5rem;

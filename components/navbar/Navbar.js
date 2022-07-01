@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -13,12 +13,15 @@ import Logo from "../../assets/logo.svg";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
+	// Router helps access the url path and params
 	const router = useRouter();
 	const currentRoute = router.pathname;
 	// console.log(currentRoute);
 
+	// State to monitor hamburger menu change
 	const [toggleMenu, setToggleMenu] = useState(false);
 
+	// Setting up nav items
 	const Menu = () => (
 		<>
 			<ul
@@ -56,6 +59,27 @@ const Navbar = () => {
 			</ul>
 		</>
 	);
+
+	// **************************************************** //
+	// Changing Navbar Background on Scroll
+	const [scrollPosition, setScrollPosition] = useState(0);
+	const handleScroll = () => {
+		const position = window.pageYOffset;
+		setScrollPosition(position);
+		console.log(scrollPosition);
+	};
+
+	useEffect(() => {
+		window.addEventListener("scroll", handleScroll);
+
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
+	// function to monitor scroll behaviour on the window element
+
+	// window.addEventListener("scroll", changeBackgroud);
 
 	return (
 		<section>

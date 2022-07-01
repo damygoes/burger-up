@@ -106,75 +106,76 @@ const BurgerForm = () => {
 					required
 					onChange={(e) => setBurgerImage(e.target.value)}
 				/>
-				<div className={styles.fieldgroup}>
-					<div className={styles.price}>
-						<label htmlFor="price"> Price</label>
-						<input
-							type="number"
-							name="price"
-							id="price"
-							placeholder="price"
-							step="0.01"
-							required
-							onChange={(e) => setBurgerPrice(e.target.value)}
-						/>
+				<div className={styles.fieldcontainer}>
+					<div className={styles.fieldgroup}>
+						<div className={styles.price}>
+							<label htmlFor="price"> Price</label>
+							<input
+								type="number"
+								name="price"
+								id="price"
+								placeholder="price"
+								step="0.01"
+								required
+								onChange={(e) => setBurgerPrice(e.target.value)}
+							/>
+						</div>
+						<fieldset>
+							<legend>Special</legend>
+							<div>
+								<input
+									type="checkbox"
+									id="special"
+									name="special"
+									onClick={() => setIsBurgerSpecial(true)}
+								/>
+								<label htmlFor="yes">Yes</label>
+							</div>
+						</fieldset>
+						<fieldset>
+							<legend>Type</legend>
+							<div>
+								<input
+									type="checkbox"
+									id="type"
+									name="vegetarian"
+									onClick={(e) => setBurgerType(e.target.name)}
+								/>
+								<label htmlFor="vegetarian">Vegetarian</label>
+							</div>
+							<div>
+								<input
+									type="checkbox"
+									id="type"
+									name="vegan"
+									onClick={(e) => setBurgerType(e.target.name)}
+								/>
+								<label htmlFor="vegan">Vegan</label>
+							</div>
+							<div>
+								<input
+									type="checkbox"
+									id="type"
+									name="cheese"
+									onClick={(e) => setBurgerType(e.target.name)}
+								/>
+								<label htmlFor="cheese">Cheese</label>
+							</div>
+							<div>
+								<input
+									type="checkbox"
+									id="type"
+									name="normal"
+									onClick={(e) => setBurgerType(e.target.name)}
+								/>
+								<label htmlFor="normal">Normal</label>
+							</div>
+						</fieldset>
 					</div>
-					<fieldset>
-						<legend>Special</legend>
-						<div>
-							<input
-								type="checkbox"
-								id="special"
-								name="special"
-								onClick={() => setIsBurgerSpecial(true)}
-							/>
-							<label htmlFor="yes">Yes</label>
-						</div>
-					</fieldset>
-					<fieldset>
-						<legend>Type</legend>
-						<div>
-							<input
-								type="checkbox"
-								id="type"
-								name="vegetarian"
-								onClick={(e) => setBurgerType(e.target.name)}
-							/>
-							<label htmlFor="vegetarian">Vegetarian</label>
-						</div>
-						<div>
-							<input
-								type="checkbox"
-								id="type"
-								name="vegan"
-								onClick={(e) => setBurgerType(e.target.name)}
-							/>
-							<label htmlFor="vegan">Vegan</label>
-						</div>
-						<div>
-							<input
-								type="checkbox"
-								id="type"
-								name="cheese"
-								onClick={(e) => setBurgerType(e.target.name)}
-							/>
-							<label htmlFor="cheese">Cheese</label>
-						</div>
-						<div>
-							<input
-								type="checkbox"
-								id="type"
-								name="normal"
-								onClick={(e) => setBurgerType(e.target.name)}
-							/>
-							<label htmlFor="normal">Normal</label>
-						</div>
-					</fieldset>
+					<button type="submit" onClick={handleSubmit}>
+						add to stock
+					</button>
 				</div>
-
-				<button type="submit" onClick={handleSubmit}>
-					add to stock
-				</button>
 			</form>
 		</section>
 	);

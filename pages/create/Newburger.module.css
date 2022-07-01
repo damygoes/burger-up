@@ -13,7 +13,7 @@
 .head {
 	font-size: 2.5rem;
 	line-height: 4rem;
-	margin-bottom: 1rem;
+	margin-bottom: 3rem;
 	text-transform: capitalize;
 }
 
@@ -21,7 +21,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	align-items: flex-start;
+	align-items: center;
 	width: 100%;
 	flex: 1;
 	flex-wrap: wrap;
@@ -32,6 +32,8 @@
 
 .main form label {
 	margin-bottom: 0.8rem;
+	align-self: flex-start;
+	margin-left: 7rem;
 }
 
 .main form input {
@@ -49,9 +51,17 @@
 	text-transform: capitalize;
 }
 
+.fieldcontainer {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
 .fieldgroup {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-between;
 	align-items: center;
 	width: 80%;
 	margin-top: 1rem;
@@ -61,13 +71,19 @@
 .fieldgroup .price {
 	display: flex;
 	flex-direction: column;
-	width: 20%;
+	justify-content: flex-start;
+	align-items: flex-start;
+	/* width: 20%; */
+}
+
+.fieldgroup .price label {
+	margin-left: 0;
 }
 
 .main fieldset {
 	border: 1px solid var(--color-text);
 	border-radius: 6px;
-	width: 30%;
+	/* width: 30%; */
 	padding: 1rem;
 	margin: 0 1rem;
 }
@@ -82,7 +98,7 @@
 	justify-content: flex-start;
 	align-items: center;
 	text-align: left;
-	width: 50%;
+	/* width: 50%; */
 	margin: 1rem 0;
 }
 
@@ -107,4 +123,5 @@
 	color: var(--color-text);
 	box-shadow: 1px 5px 20px var(--color-secondary);
 	margin-top: 3rem;
+	/* align-self: flex-start; */
 }

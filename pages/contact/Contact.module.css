@@ -1,0 +1,162 @@
+.contact {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	min-height: 100vh;
+	margin-top: 6rem;
+	color: var(--color-text);
+	border: 1px solid red;
+}
+
+.head h2 {
+	font-size: 2.5rem;
+	font-weight: 400;
+	text-transform: capitalize;
+	line-height: 2rem;
+	margin-bottom: 6rem;
+}
+
+.content {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: 100%;
+	min-height: 70vh;
+	color: var(--color-text);
+	margin-bottom: 3rem;
+	border: 1px solid yellow;
+}
+
+.left {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	max-width: 40%;
+	flex: 1;
+	margin-right: 3rem;
+	border: 1px solid white;
+}
+
+.left p {
+	font-size: 1.5rem;
+	font-weight: 300;
+	text-transform: capitalize;
+	line-height: 2rem;
+	margin-bottom: 4rem;
+}
+
+.cardform {
+	padding: 2rem 1rem 0;
+}
+
+.input {
+	display: flex;
+	flex-direction: column-reverse;
+	position: relative;
+	padding-top: 1.5rem;
+}
+
+.input + .input {
+	margin-top: 1.5rem;
+}
+
+.inputlabel {
+	color: var(--color-text);
+	position: absolute;
+	top: 1rem;
+	transition: 0.25s ease;
+	transform: translateY(-1.5rem);
+	font-size: 1rem;
+	font-weight: 100;
+}
+
+.input input {
+	border: 0;
+	z-index: 1;
+	background-color: transparent;
+	border-bottom: 2px solid var(--color-secondary);
+	font-size: 1rem;
+	padding: 0.2rem 0;
+	margin-bottom: 2rem;
+	color: var(--color-text);
+}
+
+.input input::placeholder {
+	font-size: 0.8rem;
+}
+
+.input input:focus,
+.input input:valid,
+.cardform textarea:focus,
+.cardform textarea:valid {
+	outline: 0;
+	border-bottom-color: var(--color-accent);
+}
+
+.cardform textarea {
+	background-color: transparent;
+	color: var(--color-text);
+	border-bottom: 2px solid var(--color-secondary);
+}
+
+.cardform textarea::placeholder {
+	color: var(--color-text);
+	font-size: 1rem;
+}
+
+.buttoncontainer {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 2rem 0;
+	cursor: pointer;
+}
+
+.buttoncontainer button {
+	padding: 0.8rem 1.2rem;
+	background-color: var(--color-secondary);
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	min-width: 100%;
+	text-transform: capitalize;
+	color: var(--color-text);
+	box-shadow: 1px 5px 20px var(--color-secondary);
+}
+
+.forminfo {
+	padding: 1rem 1rem;
+	text-align: center;
+	font-size: 0.875rem;
+	color: #8597a3;
+}
+.forminfo a {
+	display: block;
+	color: #6658d3;
+	text-decoration: none;
+}
+
+.right {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-left: 3rem;
+	flex: 1;
+
+	border: 1px solid green;
+	position: relative;
+}
+
+.right::after {
+	content: url("https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YnVyZ2VyJTIwcG5nfGVufDB8fDB8YmxhY2t8&auto=format&fit=crop&w=500&q=60");
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-repeat: no-repeat;
+	object-fit: cover;
+}

@@ -1,8 +1,13 @@
 import Head from "next/head";
+import Image from "next/image";
+import { MongoClient } from "mongodb";
+
+import HeaderLogo from "../assets/header.png";
+import Specialcard from "../components/specialCard/Specialcard";
 
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
+const Home = ({ burgers }) => {
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -11,7 +16,56 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<main className={styles.main}></main>
+			<main className={styles.main}>
+				<header className={styles.head}>
+					<div className={styles.left}>
+						<h4>Welcome to the burger palace</h4>
+						<h1>
+							Fresh & Tasty <span>everytime!</span>{" "}
+						</h1>
+						<p>The best burger place in town. Let's Burger UP!</p>
+						<div className={styles.cta}>
+							<button type="button">order now</button>
+							<button type="button">make request</button>
+						</div>
+					</div>
+					<div className={styles.right}>
+						<Image src={HeaderLogo} />
+					</div>
+				</header>
+				<section className={styles.specials}>
+					<Specialcard data={burgers} />
+				</section>
+			</main>
 		</div>
 	);
+};
+
+export async function getStaticProps() {
+	// connecting to MongoDB to fetch all burger collection
+
+	const client = await MongoClient.connect(
+		`mongodb+srv://damygoes:${process.env.DB_PASSWORD}@cluster0.nf34c.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
+	);
+	const db = client.db();
+	const burgerCollection = db.collection("burger");
+	const burgers = await burgerCollection.find({}).toArray();
+	// res.status(200).json({ message: "Burger Collection Found" });
+	client.close();
+
+	return {
+		props: {
+			burgers: burgers.map((burger) => ({
+				name: burger.name,
+				slug: burger.slug,
+				description: burger.description,
+				image: burger.image,
+				type: burger.type,
+				isSpecial: burger.isSpecial,
+				price: burger.price,
+			})),
+		},
+	};
 }
+
+export default Home;
