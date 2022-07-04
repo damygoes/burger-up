@@ -6,7 +6,7 @@
 	min-height: 100vh;
 	margin-top: 6rem;
 	color: var(--color-text);
-	border: 1px solid red;
+	/* border: 1px solid red; */
 }
 
 .head h2 {
@@ -20,36 +20,38 @@
 .content {
 	display: flex;
 	justify-content: flex-start;
-	align-items: flex-start;
+	align-items: center;
 	width: 100%;
 	min-height: 70vh;
 	color: var(--color-text);
 	margin-bottom: 3rem;
-	border: 1px solid yellow;
+	/* border: 1px solid yellow; */
 }
 
 .left {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: flex-start;
+	align-items: center;
 	flex-wrap: wrap;
 	max-width: 40%;
 	flex: 1;
-	margin-right: 3rem;
-	border: 1px solid white;
+	margin-right: 1rem;
+	/* border: 1px solid white; */
 }
 
 .left p {
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	font-weight: 300;
 	text-transform: capitalize;
+	text-align: center;
 	line-height: 2rem;
 	margin-bottom: 4rem;
 }
 
 .cardform {
 	padding: 2rem 1rem 0;
+	width: 100%;
 }
 
 .input {
@@ -100,16 +102,22 @@
 	background-color: transparent;
 	color: var(--color-text);
 	border-bottom: 2px solid var(--color-secondary);
+	width: 100%;
 }
 
 .cardform textarea::placeholder {
 	color: var(--color-text);
 	font-size: 1rem;
+	font-weight: 100;
+}
+
+.cardform textarea::-webkit-resizer {
+	display: none;
 }
 
 .buttoncontainer {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 	margin: 2rem 0;
 	cursor: pointer;
@@ -122,7 +130,7 @@
 	border: none;
 	outline: none;
 	cursor: pointer;
-	min-width: 100%;
+	min-width: 60%;
 	text-transform: capitalize;
 	color: var(--color-text);
 	box-shadow: 1px 5px 20px var(--color-secondary);
@@ -131,32 +139,96 @@
 .forminfo {
 	padding: 1rem 1rem;
 	text-align: center;
-	font-size: 0.875rem;
-	color: #8597a3;
+	font-size: 0.6rem;
+	font-style: italic;
+	color: var(--color-text);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-top: 0;
+	/* border: 1px solid red; */
 }
 .forminfo a {
 	display: block;
-	color: #6658d3;
+	color: var(--color-accent);
 	text-decoration: none;
+	margin-left: 0.5rem;
+	font-weight: 100;
 }
 
 .right {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
-	margin-left: 3rem;
-	flex: 1;
-
-	border: 1px solid green;
+	margin-left: 1rem;
+	/* flex: 1; */
+	width: 60%;
+	height: 100vh;
+	padding: 2rem;
+	/* border: 2px solid red; */
 	position: relative;
 }
 
+.right img {
+	width: 100%;
+	height: 100%;
+}
+
 .right::after {
-	content: url("https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YnVyZ2VyJTIwcG5nfGVufDB8fDB8YmxhY2t8&auto=format&fit=crop&w=500&q=60");
+	content: "BurgerUP!";
 	position: absolute;
 	top: 0;
 	left: 0;
-	background-repeat: no-repeat;
-	object-fit: cover;
+	background: #000;
+	opacity: 0.85;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "Indie Flower", sans-serif;
+	font-size: 3rem;
+	font-weight: 100;
+	font-style: italic;
+	color: var(--color-primary);
+	backdrop-filter: blur(20px);
+}
+
+.locationgroup {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: var(--color-text);
+	z-index: 1;
+	width: 100%;
+}
+
+.locationgroup h5 {
+	font-size: 0.8rem;
+	font-weight: 400;
+	line-height: 2rem;
+	text-transform: capitalize;
+	margin-bottom: 1.5rem;
+}
+
+.location {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 100%;
+}
+
+.location h6 {
+	font-size: 0.8rem;
+	font-weight: 200;
+	line-height: 1.4rem;
+}
+
+.location p {
+	font-size: 0.6rem;
+	font-weight: 100;
+	line-height: 1rem;
 }

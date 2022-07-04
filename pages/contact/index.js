@@ -1,6 +1,8 @@
-import Image from "next/image";
+import Link from "next/link";
 
-import Logo from "../../assets/logo.svg";
+import Image from "next/image";
+import ContactBurger from "../../assets/contact.jpg";
+
 import styles from "./Contact.module.css";
 
 const Contact = () => {
@@ -37,36 +39,29 @@ const Contact = () => {
 						</div>
 					</form>
 					<div className={styles.forminfo}>
-						<span>
-							prefer email? <a href="#">contact@burgerup.com</a>
-						</span>
+						prefer email? <a href="#">contact@burgerup.com</a>
 					</div>
 				</section>
 				<section className={styles.right}>
-					<p>"We are here to serve you and serving you we shall"</p>
-					<div>
-						<div className={styles.left}>
-							<h5>Our locations</h5>
+					<Image src={ContactBurger} alt="burger" layout="fill" />
+					<div className={styles.locationgroup}>
+						<h5>Our locations</h5>
+						<div className={styles.location}>
 							<div>
-								<div>
-									<h6>Melbourne</h6>
-									<p>100 Flinders Street</p>
-									<p>Melbourne VIC 3000 AU</p>
-								</div>
-								<div>
-									<h6>London</h6>
-									<p>100 Oxford Street</p>
-									<p>London W1D 1LL UK</p>
-								</div>
-								<div>
-									<h6>Sweden</h6>
-									<p>Drottninggatan 100</p>
-									<p>111 60 Stockholm SE</p>
-								</div>
+								<h6>Melbourne</h6>
+								<p>100 Flinders Street</p>
+								<p>Melbourne VIC 3000 AU</p>
 							</div>
-						</div>
-						<div className={styles.right}>
-							<Image src={Logo} alt="burger-up's logo" />
+							<div>
+								<h6>London</h6>
+								<p>100 Oxford Street</p>
+								<p>London W1D 1LL UK</p>
+							</div>
+							<div>
+								<h6>Sweden</h6>
+								<p>Drottninggatan 100</p>
+								<p>111 60 Stockholm SE</p>
+							</div>
 						</div>
 					</div>
 				</section>

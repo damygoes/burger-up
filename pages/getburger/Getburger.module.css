@@ -1,0 +1,89 @@
+.container {
+	color: var(--color-text);
+}
+
+/* ************************************* */
+
+.burgerCard {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/* padding: 1rem; */
+	border-radius: 5px;
+	margin: 1rem 0rem;
+	width: 32rem;
+
+	background-color: var(--color-bg);
+	box-shadow: 0px 0px 5px var(--color-secondary);
+	border: none;
+	cursor: pointer;
+}
+
+.imageContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+	/* height: 18rem; */
+	width: 100%;
+	height: 32rem;
+	position: relative;
+	/* border: 1px solid red; */
+}
+
+.imageContainer img {
+	width: 100%;
+	height: 100%;
+	border-radius: 5px 5px 0 0;
+	cursor: pointer;
+	position: relative;
+	object-fit: contain;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	width: 100%;
+	padding: 2rem;
+	/* border: 1px solid white; */
+}
+
+.content h3 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 400;
+	margin-bottom: 1rem;
+}
+
+.cta {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	/* border: 1px solid yellow; */
+}
+
+.cta p {
+	font-size: 1.2rem;
+	color: var(--color-primary);
+	line-height: 1.6;
+}
+
+.cta button {
+	padding: 0.8rem 1.2rem;
+	background-color: var(--color-secondary);
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	min-width: 5rem;
+	text-transform: capitalize;
+	color: var(--color-text);
+	box-shadow: 1px 5px 20px var(--color-secondary);
+}
+
+/* +++++++++++++++++++++++++++++++++++ */
