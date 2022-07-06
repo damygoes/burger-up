@@ -8,7 +8,7 @@ import styles from "./Getburger.module.css";
 const getBurger = () => {
 	const [searchInput, setSearchInput] = useState("");
 	const [returnedData, setReturnedData] = useState([]);
-	// let returnedData = [];
+	const [isEdit, setIsEdit] = useState(false);
 
 	async function getBurger(e) {
 		e.preventDefault();
@@ -53,8 +53,121 @@ const getBurger = () => {
 					/>
 					<button type="submit"> Search </button>
 				</form>
-				{/* <h1> {returnedData[0].name} </h1> */}
 			</div>
+			{isEdit && (
+				<form className={styles.formModal}>
+					<label htmlFor="name"> Burger Name </label>
+					<input
+						type="text"
+						name="name"
+						placeholder="Enter burger name"
+						required
+						onChange={(e) => setBurgerName(e.target.value)}
+					/>
+					<label htmlFor="slug"> Slug </label>
+					<input
+						type="text"
+						name="slug"
+						id="slug"
+						placeholder="Enter Slug"
+						required
+						onChange={(e) => setBurgerSlug(e.target.value)}
+					/>
+					<label htmlFor="description"> Description </label>
+					<input
+						type="text"
+						name="description"
+						id="description"
+						placeholder="Describe Burger"
+						required
+						onChange={(e) => setBurgerDescription(e.target.value)}
+					/>
+					<label htmlFor="image"> Image </label>
+					<input
+						type="url"
+						name="image"
+						id="image"
+						placeholder="Enter Image URL"
+						required
+						onChange={(e) => setBurgerImage(e.target.value)}
+					/>
+					<div className={styles.fieldcontainer}>
+						<div className={styles.fieldgroup}>
+							<div className={styles.price}>
+								<label htmlFor="price"> Price</label>
+								<input
+									type="number"
+									name="price"
+									id="price"
+									placeholder="price"
+									step="0.01"
+									required
+									onChange={(e) => setBurgerPrice(e.target.value)}
+								/>
+							</div>
+							<fieldset>
+								<legend>Special</legend>
+								<div>
+									<input
+										type="checkbox"
+										id="special"
+										name="special"
+										onClick={() => setIsBurgerSpecial(true)}
+									/>
+									<label htmlFor="yes">Yes</label>
+								</div>
+							</fieldset>
+							<fieldset>
+								<legend>Type</legend>
+								<div>
+									<input
+										type="checkbox"
+										id="type"
+										name="vegetarian"
+										onClick={(e) => setBurgerType(e.target.name)}
+									/>
+									<label htmlFor="vegetarian">Vegetarian</label>
+								</div>
+								<div>
+									<input
+										type="checkbox"
+										id="type"
+										name="vegan"
+										onClick={(e) => setBurgerType(e.target.name)}
+									/>
+									<label htmlFor="vegan">Vegan</label>
+								</div>
+								<div>
+									<input
+										type="checkbox"
+										id="type"
+										name="cheese"
+										onClick={(e) => setBurgerType(e.target.name)}
+									/>
+									<label htmlFor="cheese">Cheese</label>
+								</div>
+								<div>
+									<input
+										type="checkbox"
+										id="type"
+										name="normal"
+										onClick={(e) => setBurgerType(e.target.name)}
+									/>
+									<label htmlFor="normal">Normal</label>
+								</div>
+							</fieldset>
+						</div>
+						<button
+							type="submit"
+							onClick={() => {
+								setIsEdit(false);
+							}}
+						>
+							update
+						</button>
+					</div>
+				</form>
+			)}
 			{returnedData.map((burger, index) => (
 				<div className={styles.card} key={index}>
 					<div className={styles.burgerCard}>
@@ -63,36 +176,25 @@ const getBurger = () => {
 						</div>
 
 						<div className={styles.content}>
-							<h3> {burger.name} </h3>
+							<h3> Name: {burger.name} </h3>
 
 							<div className={styles.cta}>
-								<p> ${burger.price} </p>
+								<p> Price: ${burger.price} </p>
+								<p> Type: {burger.type} </p>
 							</div>
+							<button
+								type="button"
+								onClick={() => {
+									setIsEdit(true);
+								}}
+							>
+								{" "}
+								edit{" "}
+							</button>
 						</div>
 					</div>
 				</div>
 			))}
-
-			{/* {same && (
-				
-			)} */}
-			{/* {burger.name === searchInput && (
-				<div className={styles.card}>
-					<div className={styles.burgerCard} key={burger.slug}>
-						<div className={styles.imageContainer}>
-							<Image src={burger.image} alt={burger.name} layout="fill" />
-						</div>
-
-						<div className={styles.content}>
-							<h3> {burger.name} </h3>
-
-							<div className={styles.cta}>
-								<p> ${burger.price} </p>
-							</div>
-						</div>
-					</div>
-				</div>
-			)} */}
 		</div>
 	);
 };

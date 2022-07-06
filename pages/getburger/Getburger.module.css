@@ -1,5 +1,79 @@
 .container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 2rem;
+	margin-top: 6rem;
+	flex-wrap: wrap;
 	color: var(--color-text);
+	width: 100%;
+}
+
+.head {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 2rem;
+	margin-top: 6rem;
+	flex-wrap: wrap;
+	color: var(--color-text);
+	width: 100%;
+}
+
+.head h2 {
+	font-size: 2.5rem;
+	font-weight: 400;
+	line-height: 2rem;
+	margin-bottom: 3rem;
+	text-transform: capitalize;
+}
+
+.head form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 1rem;
+	width: 100%;
+}
+
+.head form label {
+	font-size: 1.2rem;
+	font-weight: 100;
+}
+
+.head form input {
+	width: 80%;
+	/* height: 2rem; */
+	padding: 1rem;
+	margin-bottom: 1.5rem;
+	border-radius: 6px;
+}
+
+.head form input::placeholder {
+	color: var(--color-main);
+	font-size: 0.8rem;
+	line-height: 2rem;
+	font-style: italic;
+	text-transform: capitalize;
+}
+
+.head form button {
+	padding: 0.8rem 1.2rem;
+	background-color: var(--color-secondary);
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	min-width: 8rem;
+	min-height: 3rem;
+	text-transform: capitalize;
+	color: var(--color-text);
+	box-shadow: 1px 5px 20px var(--color-secondary);
+	margin-top: 1rem;
+	/* align-self: flex-start; */
 }
 
 /* ************************************* */
@@ -61,19 +135,17 @@
 
 .cta {
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
-	align-items: center;
+	align-items: flex-start;
 	width: 100%;
+	font-size: 1rem;
+	font-weight: 100;
+	text-transform: capitalize;
 	/* border: 1px solid yellow; */
 }
 
-.cta p {
-	font-size: 1.2rem;
-	color: var(--color-primary);
-	line-height: 1.6;
-}
-
-.cta button {
+.content button {
 	padding: 0.8rem 1.2rem;
 	background-color: var(--color-secondary);
 	border-radius: 5px;
@@ -81,9 +153,120 @@
 	outline: none;
 	cursor: pointer;
 	min-width: 5rem;
+	font-size: 1.2rem;
 	text-transform: capitalize;
 	color: var(--color-text);
+	margin-top: 2rem;
 	box-shadow: 1px 5px 20px var(--color-secondary);
 }
 
 /* +++++++++++++++++++++++++++++++++++ */
+/* FORM MODAL */
+.formModal {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	flex: 1;
+	flex-wrap: wrap;
+	padding: 2rem 6rem;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+}
+
+.formModal label {
+	margin-bottom: 0.8rem;
+	align-self: flex-start;
+	margin-left: 7rem;
+}
+
+.formModal input {
+	width: 80%;
+	/* height: 2rem; */
+	padding: 1rem;
+	margin-bottom: 1.5rem;
+	border-radius: 6px;
+}
+.formModal input::placeholder {
+	color: var(--color-main);
+	font-size: 0.8rem;
+	line-height: 2rem;
+	font-style: italic;
+	text-transform: capitalize;
+}
+
+.fieldcontainer {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.fieldgroup {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 80%;
+	margin-top: 1rem;
+	gap: 2rem;
+}
+
+.fieldgroup .price {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	/* width: 20%; */
+}
+
+.fieldgroup .price label {
+	margin-left: 0;
+}
+
+.formModal fieldset {
+	border: 1px solid var(--color-text);
+	border-radius: 6px;
+	/* width: 30%; */
+	padding: 1rem;
+	margin: 0 1rem;
+}
+
+.formModal fieldset legend {
+	text-align: center;
+	padding: 0 1rem;
+}
+
+.formModal fieldset div {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: left;
+	/* width: 50%; */
+	margin: 1rem 0;
+}
+
+.formModal fieldset div input {
+	margin: 0 1rem;
+	width: auto;
+}
+.formModal fieldset div label {
+	margin: 0;
+}
+
+.formModal button {
+	padding: 0.8rem 1.2rem;
+	background-color: var(--color-secondary);
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	min-width: 8rem;
+	min-height: 3rem;
+	text-transform: capitalize;
+	color: var(--color-text);
+	box-shadow: 1px 5px 20px var(--color-secondary);
+	margin-top: 3rem;
+	/* align-self: flex-start; */
+}

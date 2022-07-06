@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { FiShoppingCart } from "react-icons/fi";
 
@@ -10,30 +11,32 @@ const Specialcard = ({ data }) => {
 			{data.map((burger) => {
 				return (
 					burger.isSpecial && (
-						<div className={styles.container} key={burger.slug}>
-							<div className={styles.detail}>
-								<h4> {burger.name} </h4>
-								<div>
-									{" "}
-									<p> type: {burger.type} </p>
-									<p> $ {burger.price} </p>
+						<Link href={`burger/${burger.slug}`}>
+							<div className={styles.container} key={burger.slug}>
+								<div className={styles.detail}>
+									<h4> {burger.name} </h4>
+									<div>
+										{" "}
+										<p> type: {burger.type} </p>
+										<p> $ {burger.price} </p>
+									</div>
+
+									<div className={styles.order}> order now </div>
 								</div>
 
-								<div className={styles.order}> order now </div>
+								<div className={styles.avatar}>
+									<Image
+										src={burger.image}
+										alt={burger.name}
+										width={300}
+										height={300}
+									/>
+								</div>
+								<div className={styles.basket}>
+									<FiShoppingCart />
+								</div>
 							</div>
-
-							<div className={styles.avatar}>
-								<Image
-									src={burger.image}
-									alt={burger.name}
-									width={300}
-									height={300}
-								/>
-							</div>
-							<div className={styles.basket}>
-								<FiShoppingCart />
-							</div>
-						</div>
+						</Link>
 					)
 				);
 			})}

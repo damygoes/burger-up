@@ -38,6 +38,16 @@ const Navbar = () => {
 					{" "}
 					<Link href="/burger">Burger</Link>
 				</li>
+
+				<li
+					onClick={() => {
+						setToggleMenu(false);
+					}}
+					className={currentRoute == "/contact" ? "active" : ""}
+				>
+					{" "}
+					<Link href="/contact">Contact</Link>
+				</li>
 				<li
 					onClick={() => {
 						setToggleMenu(false);
@@ -51,10 +61,10 @@ const Navbar = () => {
 					onClick={() => {
 						setToggleMenu(false);
 					}}
-					className={currentRoute == "/contact" ? "active" : ""}
+					className={currentRoute == "/getburger" ? "active" : ""}
 				>
 					{" "}
-					<Link href="/contact">Contact</Link>
+					<Link href="/getburger">Update Burger</Link>
 				</li>
 			</ul>
 		</>
