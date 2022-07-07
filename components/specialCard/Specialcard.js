@@ -11,7 +11,7 @@ const Specialcard = ({ data }) => {
 			{data.map((burger) => {
 				return (
 					burger.isSpecial && (
-						<Link href={`burger/${burger.slug}`}>
+						<Link href={`burger/${burger.slug}`} key={burger.slug}>
 							<div className={styles.container} key={burger.slug}>
 								<div className={styles.detail}>
 									<h4> {burger.name} </h4>
@@ -21,7 +21,7 @@ const Specialcard = ({ data }) => {
 										<p> $ {burger.price} </p>
 									</div>
 
-									<div className={styles.order}> order now </div>
+									<div className={styles.order}> buy now </div>
 								</div>
 
 								<div className={styles.avatar}>

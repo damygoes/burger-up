@@ -23,7 +23,7 @@ const Burgercard = ({ data }) => {
 							<div className={styles.cta}>
 								<p> ${burger.price} </p>
 								<button>
-									add to cart <FiShoppingCart />{" "}
+									buy now <FiShoppingCart />{" "}
 								</button>
 							</div>
 						</div>

@@ -1,15 +1,34 @@
 import { MongoClient } from "mongodb";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import { HiOutlineArrowLeft, HiMinus, HiPlus } from "react-icons/hi";
 
 import styles from "./Burgerdetails.module.css";
 
-import React from "react";
+import React, { useState } from "react";
 
 const BurgerDetails = ({ burger }) => {
+	const [count, setCount] = useState(0);
+
+	function increaseCountHandler() {
+		let newCount = count++;
+		setCount(newCount);
+	}
+	function decreaseCountHandler() {
+		let newCount = count--;
+		setCount(newCount);
+	}
+
+	const router = useRouter();
+
 	return (
-		<div className={styles.container}>
-			<div>
+		<div
+			className={styles.container}
+			onClick={() => {
+				router.push("/burger");
+			}}
+		>
+			<div className={styles.backnav}>
 				<HiOutlineArrowLeft /> back
 			</div>
 			<div className={styles.content}>
@@ -17,30 +36,31 @@ const BurgerDetails = ({ burger }) => {
 					<Image
 						src={burger.image}
 						alt={burger.title}
-						width={300}
-						height={300}
+						layout="fill"
+						// width={1300}
+						// height={1300}
 					/>
 				</div>
 				<div className={styles.wrapper}>
-					<div>
+					<div className={styles.innerWrapper}>
 						<div>
 							<h3> {burger.name} </h3>
-							<p> {burger.type} </p>
+							<p> type: {burger.type} </p>
 						</div>
 						<p> ${burger.price} </p>
 					</div>
-					<div>
+					<div className={styles.details}>
 						<div> Vegan </div>
 						<div> Calories </div>
 						<div> Natural </div>
 					</div>
-					<div>
+					<div className={styles.actions}>
 						<div>
-							<HiMinus />
-							<p> 2 </p>
-							<HiPlus />
+							<HiMinus onClick={decreaseCountHandler} />
+							<p> {count} </p>
+							<HiPlus onClick={increaseCountHandler} />
 						</div>
-						<button>order now</button>
+						<button>buy now</button>
 					</div>
 				</div>
 			</div>

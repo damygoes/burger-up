@@ -2,31 +2,49 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	align-items: flex-start;
+	align-items: center;
 	color: var(--color-text);
 	margin-top: 6rem;
 	height: 100%;
 	padding: 3rem;
 	gap: 2rem;
-	border: 1px solid red;
+	position: relative;
+}
+
+.backnav {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 1rem;
+	font-style: italic;
+	font-weight: 100;
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+.backnav svg {
+	color: var(--color-primary);
+	margin-right: 1rem;
+	font-size: 2rem;
 }
 
 .content {
 	display: flex;
 	justify-content: center;
-	align-items: flex-start;
+	align-items: center;
 	width: 100%;
 	height: 60%;
-	gap: 3rem;
-	border: 1px solid green;
+	margin-top: 6rem;
 }
 
 .imageContainer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/* width: 50%; */
-	/* height: 100%; */
+	position: relative;
+	height: 100%;
+	flex: 1;
 }
 
 .imageContainer img {
@@ -38,9 +56,99 @@
 .wrapper {
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: flex-start;
-	max-width: 50%;
-	flex: 1;
-	border: 1px solid blue;
+	flex-wrap: wrap;
+	max-width: 45%;
+	height: 100%;
+	margin-left: 1rem;
+}
+
+.innerWrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 50%;
+	padding: 2rem;
+}
+.innerWrapper h3 {
+	font-size: 2rem;
+	font-weight: 600;
+}
+.innerWrapper p {
+	font-size: 1.2rem;
+	font-weight: 100;
+	font-style: italic;
+	text-transform: capitalize;
+}
+
+.innerWrapper > p {
+	color: var(--color-primary);
+	letter-spacing: 0.1rem;
+	align-self: flex-end;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 1.5rem;
+}
+.details {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	gap: 1rem;
+	padding: 3rem;
+}
+.details div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50px;
+	height: 50px;
+	padding: 3rem;
+	border: 1px solid var(--color-secondary);
+}
+
+.actions {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 100%;
+	height: 10%;
+}
+
+.actions div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+	height: 100%;
+	border: none;
+}
+
+.actions div svg,
+.actions div p {
+	font-size: 1.5rem;
+}
+
+.actions div svg {
+	color: var(--color-primary);
+	cursor: pointer;
+	transition: 300ms all ease-in-out;
+}
+.actions div svg:hover {
+	transform: scale(1.5);
+}
+
+.actions button {
+	min-width: 30%;
+	height: 100%;
+	font-size: 1.5rem;
+	text-transform: capitalize;
+	background-color: var(--color-secondary);
+	color: var(--color-text);
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
 }
