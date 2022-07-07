@@ -22,13 +22,13 @@ const BurgerDetails = ({ burger }) => {
 	const router = useRouter();
 
 	return (
-		<div
-			className={styles.container}
-			onClick={() => {
-				router.push("/burger");
-			}}
-		>
-			<div className={styles.backnav}>
+		<div className={styles.container}>
+			<div
+				className={styles.backnav}
+				onClick={() => {
+					router.push("/burger");
+				}}
+			>
 				<HiOutlineArrowLeft /> back
 			</div>
 			<div className={styles.content}>

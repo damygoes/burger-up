@@ -22,9 +22,11 @@ const Burgercard = ({ data }) => {
 
 							<div className={styles.cta}>
 								<p> ${burger.price} </p>
-								<button>
-									buy now <FiShoppingCart />{" "}
-								</button>
+								<Link href={`burger/${burger.slug}`}>
+									<button>
+										buy now <FiShoppingCart />{" "}
+									</button>
+								</Link>
 							</div>
 						</div>
 					</div>
