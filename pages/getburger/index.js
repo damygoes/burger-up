@@ -9,6 +9,7 @@ const getBurger = () => {
 	const [searchInput, setSearchInput] = useState("");
 	const [returnedData, setReturnedData] = useState([]);
 	const [isEdit, setIsEdit] = useState(false);
+	const [newBurger, setNewBurger] = useState({});
 
 	async function getBurger(e) {
 		e.preventDefault();
@@ -25,15 +26,27 @@ const getBurger = () => {
 				// setReturnedData([response.data]);
 			})
 			.catch((err) => {});
-		// const res = await fetch(`/api/getburger/${searchInput}`);
-		// const result = res.json();
-		//
-		//
-		// console.log(returnedData);
-		// console.log(result);
 	}
-	// console.log(returnedData);
 
+	function openEditModal(burger) {
+		setNewBurger((newBurger = { ...burger }));
+		setIsEdit(true);
+	}
+
+	function closeEditModal() {
+		setNewBurger((newBurger = {}));
+		setIsEdit(false);
+	}
+
+	function formFieldUpdate(key, value) {
+		if (newBurger.hasOwnProperty(key)) {
+			let collection = { ...newBurger };
+			collection[key] = value;
+			setNewBurger((newBurger = collection));
+		}
+	}
+
+	// Search Input
 	return (
 		<div className={styles.container}>
 			<div className={styles.head}>
@@ -54,6 +67,7 @@ const getBurger = () => {
 					<button type="submit"> Search </button>
 				</form>
 			</div>
+			{/* Display form to update */}
 			{isEdit && (
 				<form className={styles.formModal}>
 					<label htmlFor="name"> Burger Name </label>
@@ -62,7 +76,10 @@ const getBurger = () => {
 						name="name"
 						placeholder="Enter burger name"
 						required
-						onChange={(e) => setBurgerName(e.target.value)}
+						defaultValue={newBurger.name}
+						onChange={(e) => {
+							formFieldUpdate("name", e.target.value);
+						}}
 					/>
 					<label htmlFor="slug"> Slug </label>
 					<input
@@ -71,7 +88,10 @@ const getBurger = () => {
 						id="slug"
 						placeholder="Enter Slug"
 						required
-						onChange={(e) => setBurgerSlug(e.target.value)}
+						defaultValue={newBurger.slug}
+						onChange={(e) => {
+							formFieldUpdate("slug", e.target.value);
+						}}
 					/>
 					<label htmlFor="description"> Description </label>
 					<input
@@ -80,7 +100,10 @@ const getBurger = () => {
 						id="description"
 						placeholder="Describe Burger"
 						required
-						onChange={(e) => setBurgerDescription(e.target.value)}
+						defaultValue={newBurger.description}
+						onChange={(e) => {
+							formFieldUpdate("description", e.target.value);
+						}}
 					/>
 					<label htmlFor="image"> Image </label>
 					<input
@@ -89,7 +112,10 @@ const getBurger = () => {
 						id="image"
 						placeholder="Enter Image URL"
 						required
-						onChange={(e) => setBurgerImage(e.target.value)}
+						defaultValue={newBurger.image}
+						onChange={(e) => {
+							formFieldUpdate("image", e.target.value);
+						}}
 					/>
 					<div className={styles.fieldcontainer}>
 						<div className={styles.fieldgroup}>
@@ -102,7 +128,10 @@ const getBurger = () => {
 									placeholder="price"
 									step="0.01"
 									required
-									onChange={(e) => setBurgerPrice(e.target.value)}
+									defaultValue={newBurger.price}
+									onChange={(e) => {
+										formFieldUpdate("price", e.target.value);
+									}}
 								/>
 							</div>
 							<fieldset>
@@ -112,49 +141,41 @@ const getBurger = () => {
 										type="checkbox"
 										id="special"
 										name="special"
-										onClick={() => setIsBurgerSpecial(true)}
+										// {...(newBurger.isSpecial ? { checked: "checked" } : {})}
+										checked={newBurger.isSpecial}
+										onChange={(e) => {
+											formFieldUpdate("isSpecial", e.target.value.checked);
+										}}
 									/>
 									<label htmlFor="yes">Yes</label>
 								</div>
 							</fieldset>
 							<fieldset>
 								<legend>Type</legend>
-								<div>
-									<input
-										type="checkbox"
-										id="type"
-										name="vegetarian"
-										onClick={(e) => setBurgerType(e.target.name)}
-									/>
-									<label htmlFor="vegetarian">Vegetarian</label>
-								</div>
-								<div>
-									<input
-										type="checkbox"
-										id="type"
-										name="vegan"
-										onClick={(e) => setBurgerType(e.target.name)}
-									/>
-									<label htmlFor="vegan">Vegan</label>
-								</div>
-								<div>
-									<input
-										type="checkbox"
-										id="type"
-										name="cheese"
-										onClick={(e) => setBurgerType(e.target.name)}
-									/>
-									<label htmlFor="cheese">Cheese</label>
-								</div>
-								<div>
-									<input
-										type="checkbox"
-										id="type"
-										name="normal"
-										onClick={(e) => setBurgerType(e.target.name)}
-									/>
-									<label htmlFor="normal">Normal</label>
-								</div>
+								{["vegetarian", "vegan", "normal", "cheese"].map(
+									(type, index) => (
+										<div key={index}>
+											<input
+												type="checkbox"
+												name={type}
+												checked={newBurger.type == type ? true : false}
+												onChange={(e) => {
+													console.log(e);
+													if (e.target.checked == true) {
+														formFieldUpdate("type", type);
+
+														console.log(newBurger);
+													}
+												}}
+											/>
+
+											<label htmlFor={type} className={styles.checkboxLabel}>
+												{" "}
+												{type}{" "}
+											</label>
+										</div>
+									)
+								)}
 							</fieldset>
 						</div>
 						<button
@@ -168,6 +189,8 @@ const getBurger = () => {
 					</div>
 				</form>
 			)}
+
+			{/* Display Card to be edited */}
 			{returnedData.map((burger, index) => (
 				<div className={styles.card} key={index}>
 					<div className={styles.burgerCard}>
@@ -185,7 +208,7 @@ const getBurger = () => {
 							<button
 								type="button"
 								onClick={() => {
-									setIsEdit(true);
+									openEditModal(burger);
 								}}
 							>
 								{" "}
