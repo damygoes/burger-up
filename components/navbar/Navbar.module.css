@@ -245,35 +245,52 @@
 	}
 
 	.mobileLinks {
-		top: 5rem;
-		right: 3rem;
-		width: 50vw;
-		height: 50vh;
-		/* border: 1px solid white; */
+		top: 4rem;
+		right: -10rem;
+		width: 100vw;
+		height: 100vh;
+		backdrop-filter: blur(20px);
+	}
+
+	.mobileLinks li {
+		font-weight: 400;
+		font-size: 1.2rem;
+		line-height: 1.5rem;
+		text-shadow: 1px 3px 3px var(--color-primary);
 	}
 }
 /* Tablet Devices  - any size below 700px will be affected by this query */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 650px) {
 	.iconContainer button,
 	.iconContainer p:nth-child(2) {
 		display: none;
 	}
 	.mobileLinks {
-		/* top: 3rem;
-		margin-top: 1.2rem; */
-		/* width: 60vw;
-		height: 70vh; */
-		right: 0;
+		top: 4rem;
+		right: -10rem;
+		width: 100vw;
+	}
+
+	.mobileLinks li {
+		line-height: 1rem;
+		line-height: 2rem;
+		margin: 0.5rem 0;
 	}
 
 	.mobileLinks .iconContainer {
-		display: block;
-		margin-top: 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 2rem 0 0 0;
+		width: 100%;
+		gap: 1rem;
 	}
 
 	.mobileLinks .iconContainer button {
 		display: block;
-		margin-top: 3rem;
+		margin: 2rem 0 6rem 0;
+		font-size: 1.2rem;
 	}
 
 	.cartnumber svg {

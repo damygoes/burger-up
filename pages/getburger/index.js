@@ -46,6 +46,39 @@ const getBurger = () => {
 		}
 	}
 
+	// Submit Handler
+	async function handleSubmit(e) {
+		// e.preventDefault();
+		const burgerId = newBurger._id;
+
+		const body = {
+			name: newBurger.name,
+			slug: newBurger.slug,
+			description: newBurger.description,
+			image: newBurger.image,
+			type: newBurger.type,
+			isSpecial: newBurger.isSpecial,
+			price: parseFloat(newBurger.price),
+		};
+
+		await fetch(`/api/updateburger/${burgerId}`, {
+			method: "PUT",
+			body: JSON.stringify(body),
+			headers: {
+				"Content-Type": "application/json",
+			},
+		})
+			.then((response) => {
+				response.json();
+			})
+			.then((response) => {
+				console.log("Burger updated!", response);
+			})
+			.catch((error) => {
+				console.log(error.response);
+			});
+	}
+
 	// Search Input
 	return (
 		<div className={styles.container}>
@@ -152,36 +185,34 @@ const getBurger = () => {
 							</fieldset>
 							<fieldset>
 								<legend>Type</legend>
-								{["vegetarian", "vegan", "normal", "cheese"].map(
-									(type, index) => (
-										<div key={index}>
-											<input
-												type="checkbox"
-												name={type}
-												checked={newBurger.type == type ? true : false}
-												onChange={(e) => {
-													console.log(e);
-													if (e.target.checked == true) {
-														formFieldUpdate("type", type);
+								{["vegetarian", "vegan", "normal", "cheese"].map((type, index) => (
+									<div key={index}>
+										<input
+											type="checkbox"
+											name={type}
+											checked={newBurger.type == type ? true : false}
+											onChange={(e) => {
+												console.log(e);
+												if (e.target.checked == true) {
+													formFieldUpdate("type", type);
 
-														console.log(newBurger);
-													}
-												}}
-											/>
+													console.log(newBurger);
+												}
+											}}
+										/>
 
-											<label htmlFor={type} className={styles.checkboxLabel}>
-												{" "}
-												{type}{" "}
-											</label>
-										</div>
-									)
-								)}
+										<label htmlFor={type} className={styles.checkboxLabel}>
+											{" "}
+											{type}{" "}
+										</label>
+									</div>
+								))}
 							</fieldset>
 						</div>
 						<button
-							type="submit"
+							type="button"
 							onClick={() => {
-								setIsEdit(false);
+								handleSubmit();
 							}}
 						>
 							update

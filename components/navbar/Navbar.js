@@ -95,9 +95,20 @@ const Navbar = () => {
 		<section>
 			<header className={styles.header}>
 				<Link href="/">
-					<div className={styles.logo}>
+					<div
+						className={styles.logo}
+						onClick={() => {
+							setToggleMenu(false);
+						}}
+					>
 						{" "}
-						<Image src={Logo} alt="logo" />{" "}
+						<Image
+							src={Logo}
+							alt="logo"
+							onClick={() => {
+								setToggleMenu(false);
+							}}
+						/>{" "}
 					</div>
 				</Link>
 				<nav>

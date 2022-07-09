@@ -91,3 +91,18 @@
 	justify-content: center;
 	align-items: center;
 }
+
+/* Media Queries */
+/* Larger Devices  - any size below 1050px will be affected by this query */
+@media screen and (max-width: 1050px) {
+	.container {
+		margin: 2rem;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.container {
+		margin: 1rem;
+		width: 100%;
+	}
+}
