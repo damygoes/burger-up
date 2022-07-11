@@ -79,3 +79,11 @@
 	color: var(--color-text);
 	box-shadow: 1px 5px 20px var(--color-secondary);
 }
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 490px) {
+	.burgerCard {
+		margin: 2rem 0rem;
+		height: 32rem;
+	}
+}

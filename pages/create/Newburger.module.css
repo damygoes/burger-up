@@ -126,3 +126,56 @@
 	margin-top: 3rem;
 	/* align-self: flex-start; */
 }
+
+/* Media Queries */
+
+@media screen and (max-width: 1050px) {
+	.main form {
+		padding: 2rem;
+	}
+
+	.main form label {
+		margin-left: 4rem;
+	}
+
+	.fieldgroup {
+		width: 100%;
+	}
+
+	.main fieldset {
+		margin: 0;
+	}
+
+	.main fieldset div label {
+		width: 100%;
+	}
+}
+@media screen and (max-width: 650px) {
+	.main form {
+		padding: 2rem 0;
+	}
+
+	.main form label {
+		margin-left: 3rem;
+	}
+
+	.fieldgroup {
+		flex-direction: column;
+		align-items: flex-start;
+		width: 100%;
+	}
+
+	.fieldgroup .price,
+	.fieldgroup .price input {
+		width: 100%;
+	}
+
+	.fieldgroup .price label {
+		margin-left: 0;
+	}
+
+	.main fieldset {
+		margin: 0;
+		width: 100%;
+	}
+}

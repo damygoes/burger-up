@@ -77,7 +77,8 @@
 }
 
 /* ************************************* */
-
+/* *********** BURGER CARD ************* */
+/* ************************************* */
 .burgerCard {
 	display: flex;
 	flex-direction: column;
@@ -273,4 +274,53 @@
 
 .checkboxLabel {
 	text-transform: capitalize;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1050px) {
+	.formModal {
+		padding: 2rem 0;
+	}
+
+	.formModal label {
+		margin-left: 5rem;
+	}
+
+	.fieldgroup {
+		flex-direction: column;
+		align-items: flex-start;
+		width: 100%;
+	}
+
+	.fieldgroup .price,
+	.fieldgroup .price input {
+		width: 100%;
+	}
+
+	.fieldgroup .price label {
+		margin-left: 0;
+	}
+
+	.formModal fieldset {
+		margin: 0;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.head h2 {
+		font-size: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.burgerCard {
+		width: 18rem;
+		height: 28rem;
+		margin-top: 3rem;
+	}
+
+	.imageContainer img {
+		object-fit: cover;
+	}
 }
