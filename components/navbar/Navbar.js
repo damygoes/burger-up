@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -13,6 +14,7 @@ import Logo from "../../assets/logo.svg";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
+	const cart = useSelector((state) => state.cart);
 	// Router helps access the url path and params
 	const router = useRouter();
 	const currentRoute = router.pathname;
@@ -114,18 +116,24 @@ const Navbar = () => {
 				<nav>
 					<Menu />
 				</nav>
+
 				<div className={styles.iconContainer}>
-					<div className={styles.cartnumber}>
-						{" "}
-						<IoBag />
-						<div>
-							<p>5</p>
+					<Link href="/cart">
+						<div className={styles.cartnumber}>
+							{" "}
+							<IoBag />{" "}
+							{cart.cartItems.length >= 1 && (
+								<div>
+									<p> {cart.cartItems.length} </p>
+								</div>
+							)}
 						</div>
-					</div>
+					</Link>
 
 					<p> log in </p>
 					<button> sign up </button>
 				</div>
+
 				<div className={styles.mobileContainer}>
 					{toggleMenu ? (
 						<AiFillCloseSquare size={37} onClick={() => setToggleMenu(false)} />

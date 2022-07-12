@@ -32,7 +32,7 @@
 	border-radius: 5px 5px 0 0;
 	cursor: pointer;
 	position: relative;
-	object-fit: contain;
+	object-fit: cover;
 }
 
 .content {

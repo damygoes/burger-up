@@ -1,11 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../features/cartSlice";
 
 import { FiShoppingCart } from "react-icons/fi";
 
 import styles from "./Burgercard.module.css";
 
 const Burgercard = ({ data }) => {
+	const dispatch = useDispatch();
+	const handleAddToCart = (burger) => {
+		dispatch(addToCart(burger));
+	};
+
 	return (
 		<>
 			{data.map((burger) => {
@@ -22,11 +29,10 @@ const Burgercard = ({ data }) => {
 
 							<div className={styles.cta}>
 								<p> ${burger.price} </p>
-								<Link href={`burger/${burger.slug}`}>
-									<button>
-										buy now <FiShoppingCart />{" "}
-									</button>
-								</Link>
+
+								<button onClick={() => handleAddToCart(burger)}>
+									buy now <FiShoppingCart />{" "}
+								</button>
 							</div>
 						</div>
 					</div>
