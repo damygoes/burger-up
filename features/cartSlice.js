@@ -48,7 +48,6 @@ const cartSlice = createSlice({
 				position: "top-center",
 				type: "error",
 			});
-			localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
 		},
 		decreaseCartQuantity(state, action) {
 			const burgerIndex = state.cartItems.findIndex(
@@ -71,7 +70,6 @@ const cartSlice = createSlice({
 					type: "error",
 				});
 			}
-			localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
 		},
 		increaseCartQuantity(state, action) {
 			const burgerIndex = state.cartItems.findIndex(
@@ -93,7 +91,6 @@ const cartSlice = createSlice({
 				position: "top-center",
 				type: "error",
 			});
-			localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
 		},
 		getTotals(state, action) {
 			let { total, quantity } = state.cartItems.reduce(
