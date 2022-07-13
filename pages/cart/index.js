@@ -1,18 +1,56 @@
 import Image from "next/image";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 import { HiOutlineArrowLeft, HiMinus, HiPlus } from "react-icons/hi";
 
 import styles from "./Cart.module.css";
+import { useRouter } from "next/router";
+import {
+	clearCart,
+	decreaseCartQuantity,
+	getTotals,
+	increaseCartQuantity,
+	removeFromCart,
+} from "../../features/cartSlice";
 
 const Cart = () => {
+	const router = useRouter();
+	const dispatch = useDispatch();
+
 	const cart = useSelector((state) => state.cart);
+
+	const handleRemoveFromCart = (cartItem) => {
+		dispatch(removeFromCart(cartItem));
+	};
+
+	const handleDecreaseCartQuantity = (cartItem) => {
+		dispatch(decreaseCartQuantity(cartItem));
+	};
+
+	const handleIncreaseCartQuantity = (cartItem) => {
+		dispatch(increaseCartQuantity(cartItem));
+	};
+
+	const handleClearCart = () => {
+		dispatch(clearCart());
+	};
+
+	useEffect(() => {
+		dispatch(getTotals());
+	}, [cart, dispatch]);
+
 	return (
 		<div>
 			{cart.cartItems.length === 0 ? (
 				<div className={styles.cartEmpty}>
 					<p> your cart is currently empty</p>
-					<div className={styles.startShopping}>
+					<div
+						className={styles.startShopping}
+						onClick={() => {
+							router.push("/burger");
+						}}
+					>
 						{" "}
 						<HiOutlineArrowLeft /> start shopping{" "}
 					</div>
@@ -28,11 +66,15 @@ const Cart = () => {
 								<h4> {cartItem.name} </h4>
 								<div>
 									<div className={styles.counter}>
-										<HiMinus />
+										<HiMinus onClick={() => handleDecreaseCartQuantity(cartItem)} />
 										<p> {cartItem.cartQuantity} </p>
-										<HiPlus />
+										<HiPlus onClick={() => handleIncreaseCartQuantity(cartItem)} />
 									</div>
-									<button type="button" className={styles.cartItemDelete}>
+									<button
+										type="button"
+										className={styles.cartItemDelete}
+										onClick={() => handleRemoveFromCart(cartItem)}
+									>
 										{" "}
 										delete
 									</button>
@@ -43,8 +85,7 @@ const Cart = () => {
 								</div>
 							</div>
 							<div className={styles.orderPrice}>
-								{" "}
-								${cartItem.cartQuantity * cartItem.price}{" "}
+								${cartItem.cartQuantity * cartItem.price}
 							</div>
 						</div>
 					))}
@@ -52,24 +93,36 @@ const Cart = () => {
 					<div className={styles.subTotal}>
 						<div className={styles.subTotalPrice}>
 							<p>subtotal</p>
-							<p> ${cart.cartTotalAmount} </p>
+							<p> ${cart.cartTotalAmount.toFixed(2)} </p>
 						</div>
 						<div className={styles.shipping}>
 							<p>shipping</p>
-							<p> 3.99 </p>
+							<p> ${(cart.cartTotalAmount * 0.02).toFixed(2)} </p>
 						</div>
 					</div>
 					<div className={styles.finalPrice}>
 						<p> total </p>
-						<p> $93.98 </p>
+						<p>
+							{" "}
+							${(cart.cartTotalAmount + cart.cartTotalAmount * 0.02).toFixed(2)}{" "}
+						</p>
 					</div>
 					<div className={styles.cartActions}>
-						<div className={styles.continueShopping}>
+						<div
+							className={styles.continueShopping}
+							onClick={() => {
+								router.push("/burger");
+							}}
+						>
 							{" "}
 							<HiOutlineArrowLeft /> continue shopping{" "}
 						</div>
 						<div className={styles.cartActionsButtons}>
-							<button type="button" className={styles.clearCart}>
+							<button
+								type="button"
+								className={styles.clearCart}
+								onClick={() => handleClearCart()}
+							>
 								{" "}
 								clear cart{" "}
 							</button>

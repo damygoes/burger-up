@@ -197,5 +197,31 @@
 
 /* EMPTY CART MARKUP STYLING */
 .cartEmpty {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	gap: 2rem;
 	color: var(--color-text);
+}
+.cartEmpty p {
+	font-size: 3rem;
+	font-weight: 100;
+
+	text-transform: capitalize;
+}
+.cartEmpty div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-transform: capitalize;
+	gap: 1rem;
+	font-size: 1.5rem;
+	cursor: pointer;
+	color: var(--color-accent);
+}
+.cartEmpty svg {
+	font-size: 2rem;
+	cursor: pointer;
 }
