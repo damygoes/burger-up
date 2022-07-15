@@ -31,11 +31,13 @@
 
 .content {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-between;
 	align-items: center;
 	width: 100%;
 	height: 70%;
 	margin-top: 6rem;
+	flex-wrap: wrap;
+	/* overflow: hidden; */
 }
 
 .imageContainer {
@@ -45,6 +47,7 @@
 	position: relative;
 	height: 100%;
 	flex: 1;
+	margin-right: 1rem;
 }
 
 .imageContainer img {
@@ -59,9 +62,8 @@
 	justify-content: center;
 	align-items: flex-start;
 	flex-wrap: wrap;
-	max-width: 45%;
+	max-width: 40%;
 	height: 100%;
-	margin-left: 1rem;
 }
 
 .innerWrapper {
@@ -71,80 +73,67 @@
 	flex-wrap: wrap;
 	width: 100%;
 	height: 50%;
-	padding: 2rem;
+	padding: 2rem 1rem;
 }
 .innerWrapper h3 {
 	font-size: 2rem;
 	font-weight: 600;
+	margin-bottom: 3rem;
 }
 .innerWrapper p {
-	font-size: 1.2rem;
+	font-size: 1rem;
+	line-height: 2rem;
 	font-weight: 100;
-	font-style: italic;
 	text-transform: capitalize;
 }
 
-.innerWrapper > p {
-	color: var(--color-primary);
-	letter-spacing: 0.1rem;
-	align-self: flex-end;
-	font-weight: 400;
-	font-style: normal;
-	font-size: 1.5rem;
-}
 .details {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	width: 100%;
+	margin-top: 2rem;
 	gap: 1rem;
-	padding: 3rem;
+	flex-wrap: wrap;
 }
 .details div {
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: center;
-	width: 50px;
-	height: 50px;
-	padding: 3rem;
+	max-width: 4rem;
+	padding: 0.3rem 3rem;
+	border-radius: 100px;
+	font-size: 0.6rem;
 	border: 1px solid var(--color-secondary);
+}
+.details div span {
+	font-size: 0.8rem;
+	margin-left: 0.5rem;
+	color: var(--color-accent);
 }
 
 .actions {
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	align-items: center;
 	width: 100%;
 	height: 10%;
+	margin-top: 3rem;
+	padding: 0 1.2rem;
 }
-
-.actions div {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 2rem;
-	height: 100%;
-	border: none;
-}
-
-.actions div svg,
-.actions div p {
-	font-size: 1.5rem;
-}
-
-.actions div svg {
+.actions p {
 	color: var(--color-primary);
-	cursor: pointer;
-	transition: 300ms all ease-in-out;
-}
-.actions div svg:hover {
-	transform: scale(1.5);
+	letter-spacing: 0.1rem;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 1.2rem;
 }
 
 .actions button {
-	min-width: 30%;
-	height: 100%;
-	font-size: 1.5rem;
+	min-width: 5rem;
+	min-height: 4rem;
+	font-size: 1.2rem;
+	padding: 1.2rem;
 	text-transform: capitalize;
 	background-color: var(--color-secondary);
 	color: var(--color-text);
@@ -158,52 +147,70 @@
 @media screen and (max-width: 1050px) {
 	.content {
 		flex-direction: column;
-		height: 80%;
+		justify-content: space-between;
+		align-items: flex-start;
+		height: 100%;
 	}
+
+	.imageContainer {
+		margin: 0;
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+
 	.wrapper {
 		max-width: 100%;
 		height: 40%;
-		margin-left: 0rem;
-	}
-	.innerWrapper {
-		height: auto;
-		padding: 1rem;
 	}
 
-	.innerWrapper > p {
-		align-self: center;
-	}
-	.details {
-		padding: 1rem;
+	.innerWrapper h3 {
+		font-size: 2rem;
+		font-weight: 600;
+		margin-bottom: 1.5rem;
 	}
 
 	.actions {
-		justify-content: space-between;
-		height: auto;
-		padding: 1rem;
-		margin-top: 2rem;
-	}
-	.actions div {
-		gap: 1rem;
-	}
-	.actions button {
-		min-width: 30%;
-		font-size: 1rem;
-		padding: 1rem;
-	}
-	.imageContainer {
-		display: flex;
-		width: 100%;
+		margin-top: 8rem;
 	}
 }
 
 @media screen and (max-width: 650px) {
-	.container {
-		padding: 2rem;
+	.content {
+		justify-content: flex-start;
+	}
+	.imageContainer {
+		flex: 1;
 	}
 
-	.imageContainer {
-		flex: 0.6;
+	.wrapper {
+		max-width: 100%;
+		height: 60%;
+		margin-top: 1rem;
+		justify-content: flex-start;
+	}
+	.innerWrapper {
+		height: 90%;
+		padding: 1rem;
+	}
+
+	.details {
+		margin-top: 0rem;
+	}
+	.details div {
+		max-width: 10rem;
+	}
+
+	.actions {
+		margin: 0;
+		padding: 0 1.2rem;
+	}
+
+	.actions button {
+		min-height: 1rem;
+		font-size: 1rem;
+		padding: 1rem;
 	}
 }
 
@@ -211,31 +218,26 @@
 	.container {
 		padding: 1rem;
 	}
-	.content {
-		height: 100%;
-	}
-	.details {
-		padding: 1rem;
-	}
-	.details div {
-		padding: 2.5rem;
+
+	.imageContainer {
+		flex: 1;
 	}
 
-	.actions {
-		justify-content: space-between;
-		height: auto;
-		padding: 1rem;
-		margin-top: 2rem;
+	.wrapper {
+		height: 70%;
 	}
-	.actions div {
-		gap: 1rem;
+	.innerWrapper p {
+		font-size: 1.1rem;
+		line-height: 2rem;
 	}
-	.actions button {
-		min-width: 30%;
-		font-size: 1rem;
-		padding: 1rem;
+
+	.details {
+		flex-direction: column;
 	}
-	.imageContainer {
-		flex: 0.5;
+
+	.details div {
+		width: 100%;
+		font-size: 0.8rem;
+		font-weight: 100;
 	}
 }

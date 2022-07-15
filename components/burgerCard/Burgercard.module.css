@@ -77,6 +77,9 @@
 	min-width: 5rem;
 	text-transform: capitalize;
 	color: var(--color-text);
+	transition: var(--transition-timer);
+}
+.cta button:hover {
 	box-shadow: 1px 5px 20px var(--color-secondary);
 }
 

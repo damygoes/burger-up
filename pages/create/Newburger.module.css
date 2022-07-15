@@ -122,9 +122,11 @@
 	min-height: 3rem;
 	text-transform: capitalize;
 	color: var(--color-text);
-	box-shadow: 1px 5px 20px var(--color-secondary);
 	margin-top: 3rem;
-	/* align-self: flex-start; */
+	transition: var(--transition-timer);
+}
+.main form button:hover {
+	box-shadow: 1px 5px 20px var(--color-secondary);
 }
 
 /* Media Queries */

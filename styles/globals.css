@@ -26,6 +26,7 @@
 	--color-secondary: #41c485;
 	--color-accent: #f3b404;
 	--color-text: #fff;
+	--transition-timer: 100ms all ease-in-out;
 }
 
 * {
@@ -40,7 +41,8 @@ body {
 	background: var(--linear-bg);
 	font-family: var(--font-family);
 	scroll-behavior: smooth;
-	overflow-x: hidden;
+	overflow: scroll;
+	position: relative;
 }
 
 body::-webkit-scrollbar {

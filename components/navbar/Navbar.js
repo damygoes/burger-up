@@ -55,6 +55,7 @@ const Navbar = () => {
 						setToggleMenu(false);
 					}}
 					className={currentRoute == "/create" ? "active" : ""}
+					style={{ display: "none" }} //CHANGE LATER WHEN ADDING FEATURES
 				>
 					{" "}
 					<Link href="/create">Add New Burger</Link>
@@ -64,6 +65,7 @@ const Navbar = () => {
 						setToggleMenu(false);
 					}}
 					className={currentRoute == "/getburger" ? "active" : ""}
+					style={{ display: "none" }} //CHANGE LATER WHEN ADDING FEATURES
 				>
 					{" "}
 					<Link href="/getburger">Update Burger</Link>
@@ -71,27 +73,6 @@ const Navbar = () => {
 			</ul>
 		</>
 	);
-
-	// **************************************************** //
-	// Changing Navbar Background on Scroll
-	const [scrollPosition, setScrollPosition] = useState(0);
-	const handleScroll = () => {
-		const position = window.pageYOffset;
-		setScrollPosition(position);
-		console.log(scrollPosition);
-	};
-
-	useEffect(() => {
-		window.addEventListener("scroll", handleScroll);
-
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	}, []);
-
-	// function to monitor scroll behaviour on the window element
-
-	// window.addEventListener("scroll", changeBackgroud);
 
 	return (
 		<section>
@@ -123,9 +104,7 @@ const Navbar = () => {
 							{" "}
 							<IoBag />{" "}
 							{cart.cartItems.length >= 1 && (
-								<div>
-									<p> {cart.cartTotalQuantity} </p>
-								</div>
+								<p className={styles.cartQuantityNumber}> {cart.cartTotalQuantity} </p>
 							)}
 						</div>
 					</Link>

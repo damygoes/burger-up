@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 import { HiOutlineArrowLeft, HiMinus, HiPlus } from "react-icons/hi";
 
 import styles from "./Cart.module.css";
-import { useRouter } from "next/router";
 import {
 	clearCart,
 	decreaseCartQuantity,
@@ -39,6 +40,13 @@ const Cart = () => {
 	useEffect(() => {
 		dispatch(getTotals());
 	}, [cart, dispatch]);
+
+	const handlePlaceOrder = () => {
+		alert("Thank you! Your order will be delivered within 45mins");
+		setTimeout(() => {
+			router.push("/");
+		}, 200);
+	};
 
 	return (
 		<div>
@@ -80,7 +88,7 @@ const Cart = () => {
 									</button>
 									<p className={styles.unitPrice}>
 										{" "}
-										Price: <span> ${cartItem.price} </span>{" "}
+										Unit Price: <span> ${cartItem.price} </span>{" "}
 									</p>
 								</div>
 							</div>
@@ -126,7 +134,14 @@ const Cart = () => {
 								{" "}
 								clear cart{" "}
 							</button>
-							<button type="button" className={styles.placeOrder}>
+							<button
+								type="button"
+								className={styles.placeOrder}
+								onClick={() => {
+									handlePlaceOrder();
+									handleClearCart();
+								}}
+							>
 								{" "}
 								place order{" "}
 							</button>

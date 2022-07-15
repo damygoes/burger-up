@@ -133,6 +133,9 @@
 	min-width: 60%;
 	text-transform: capitalize;
 	color: var(--color-text);
+	transition: var(--transition-timer);
+}
+.buttoncontainer button:hover {
 	box-shadow: 1px 5px 20px var(--color-secondary);
 }
 

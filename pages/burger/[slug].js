@@ -1,25 +1,23 @@
 import { MongoClient } from "mongodb";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { HiOutlineArrowLeft, HiMinus, HiPlus } from "react-icons/hi";
+import { addToCart } from "../../features/cartSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { HiOutlineArrowLeft } from "react-icons/hi";
 
 import styles from "./Burgerdetails.module.css";
 
-import React, { useState } from "react";
-
 const BurgerDetails = ({ burger }) => {
-	const [count, setCount] = useState(0);
-
-	function increaseCountHandler() {
-		let newCount = count++;
-		setCount(newCount);
-	}
-	function decreaseCountHandler() {
-		let newCount = count--;
-		setCount(newCount);
-	}
-
+	const dispatch = useDispatch();
+	// const cart = useSelector((state) => state.cart);
 	const router = useRouter();
+
+	const handleAddToCart = (burger) => {
+		dispatch(addToCart(burger));
+	};
+
+	// console.log(burger.nutrition);
+	const { fat, saturates, sugar, salt, calories } = burger.nutrition;
 
 	return (
 		<div className={styles.container}>
@@ -33,34 +31,41 @@ const BurgerDetails = ({ burger }) => {
 			</div>
 			<div className={styles.content}>
 				<div className={styles.imageContainer}>
-					<Image
-						src={burger.image}
-						alt={burger.title}
-						layout="fill"
-						// width={1300}
-						// height={1300}
-					/>
+					<Image src={burger.image} alt={burger.title} layout="fill" />
 				</div>
 				<div className={styles.wrapper}>
 					<div className={styles.innerWrapper}>
 						<div>
 							<h3> {burger.name} </h3>
-							<p> type: {burger.type} </p>
+							<p> {burger.description} </p>
 						</div>
-						<p> ${burger.price} </p>
+						<div className={styles.details}>
+							<div>
+								{" "}
+								Fat: <span> {fat}g </span>{" "}
+							</div>
+							<div>
+								{" "}
+								Saturates: <span> {saturates}g </span>{" "}
+							</div>
+							{/* <div>
+								{" "}
+								Sugar: <span> {sugar}g </span>{" "}
+							</div> */}
+							<div>
+								{" "}
+								Salt: <span> {salt}g </span>{" "}
+							</div>
+							<div>
+								{" "}
+								Calories: <span> {calories}g </span>{" "}
+							</div>
+						</div>
 					</div>
-					<div className={styles.details}>
-						<div> Vegan </div>
-						<div> Calories </div>
-						<div> Natural </div>
-					</div>
+
 					<div className={styles.actions}>
-						<div>
-							<HiMinus onClick={decreaseCountHandler} />
-							<p> {count} </p>
-							<HiPlus onClick={increaseCountHandler} />
-						</div>
-						<button>buy now</button>
+						<p> ${burger.price} </p>
+						<button onClick={() => handleAddToCart(burger)}>buy now</button>
 					</div>
 				</div>
 			</div>
@@ -90,6 +95,7 @@ export async function getStaticProps(context) {
 				image: burger.image,
 				price: burger.price,
 				isSpecial: burger.isSpecial,
+				nutrition: burger.nutrition,
 			},
 		},
 	};
