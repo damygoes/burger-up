@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { MongoClient } from "mongodb";
 
 import HeaderLogo from "../assets/header.png";
@@ -29,8 +30,12 @@ const Home = ({ burgers }) => {
 						</h1>
 						<p>The best burger place in town. Let's Burger UP!</p>
 						<div className={styles.cta}>
-							<button type="button">order now</button>
-							<button type="button">make request</button>
+							<Link href={"/burger"}>
+								<button type="button">order now</button>
+							</Link>
+							<Link href={"/contact"}>
+								<button type="button">make request</button>
+							</Link>
 						</div>
 					</div>
 					<div className={styles.right}>

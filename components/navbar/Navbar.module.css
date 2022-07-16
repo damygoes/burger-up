@@ -76,10 +76,6 @@
 	transition: 200ms all ease-in-out;
 }
 
-.header nav ul a.active {
-	border-bottom: 2px solid var(--color-primary);
-}
-
 .iconContainer {
 	display: flex;
 	justify-content: space-evenly;
@@ -231,13 +227,34 @@
 	}
 }
 
+/* HOVER Animations */
+/* Underline From Center */
+/* Shadow */
+.hvrShadow {
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(226, 41, 63, 0);
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-property: box-shadow;
+	transition-property: box-shadow;
+}
+.hvrShadow:hover,
+.hvrShadow:focus,
+.hvrShadow:active {
+	box-shadow: 0 10px 10px -10px rgba(226, 41, 63, 1);
+}
+
 /* ############################################## */
 /* #######      REMOVE LATER      ############### */
 /* ############################################## */
 .iconContainer p,
 .iconContainer button,
 .mobileContainer .iconContainer p,
-.mobileContainer .iconContainer button {
+.mobileContainer .iconContainer button,
+.mobileLinks .iconContainer button {
 	display: none;
 }
 
@@ -269,8 +286,7 @@
 }
 /* Tablet Devices  - any size below 700px will be affected by this query */
 @media screen and (max-width: 650px) {
-	.iconContainer button,
-	.iconContainer p:nth-child(2) {
+	.iconContainer button {
 		display: none;
 	}
 	.mobileLinks {
@@ -296,17 +312,13 @@
 	}
 
 	.mobileLinks .iconContainer button {
-		display: block;
+		/* display: block;  */ /* CHANGE LATER when adding features */
 		margin: 2rem 0 6rem 0;
 		font-size: 1.2rem;
 	}
 
 	.cartnumber svg {
-		font-size: 2.5rem;
-	}
-
-	.cartnumber div {
-		left: 60%;
+		font-size: 2rem;
 	}
 }
 /* Mobile Devices  - any size below 550px will be affected by this query */

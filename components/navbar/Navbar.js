@@ -35,7 +35,7 @@ const Navbar = () => {
 					onClick={() => {
 						setToggleMenu(false);
 					}}
-					className={currentRoute == "/burger" ? "active" : ""}
+					className={styles.hvrShadow}
 				>
 					{" "}
 					<Link href="/burger">Burger</Link>
@@ -45,7 +45,7 @@ const Navbar = () => {
 					onClick={() => {
 						setToggleMenu(false);
 					}}
-					className={currentRoute == "/contact" ? "active" : ""}
+					className={styles.hvrShadow}
 				>
 					{" "}
 					<Link href="/contact">Contact</Link>
@@ -54,7 +54,7 @@ const Navbar = () => {
 					onClick={() => {
 						setToggleMenu(false);
 					}}
-					className={currentRoute == "/create" ? "active" : ""}
+					className={styles.hvrShadow}
 					style={{ display: "none" }} //CHANGE LATER WHEN ADDING FEATURES
 				>
 					{" "}
@@ -64,7 +64,7 @@ const Navbar = () => {
 					onClick={() => {
 						setToggleMenu(false);
 					}}
-					className={currentRoute == "/getburger" ? "active" : ""}
+					className={styles.hvrShadow}
 					style={{ display: "none" }} //CHANGE LATER WHEN ADDING FEATURES
 				>
 					{" "}

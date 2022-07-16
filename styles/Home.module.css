@@ -189,18 +189,22 @@
 	line-height: 1rem;
 	position: absolute;
 }
+/* Huge Quantity */
 .patronize p:last-child {
 	top: 60%;
 	right: 15%;
 }
+/* Fast Delivery */
 .patronize p:nth-child(4) {
 	top: 60%;
 	left: 13%;
 }
+/* Best Quality */
 .patronize p:nth-child(5) {
 	top: 24%;
 	left: 30%;
 }
+/* Natural Ingredients */
 .patronize p:nth-child(6) {
 	bottom: 15%;
 	left: 60%;
@@ -234,6 +238,39 @@
 
 	.specials {
 		margin: 6rem 0;
+	}
+	.imageContainer {
+		width: 600px;
+		height: 600px;
+		margin: 6rem 0;
+	}
+
+	/* Huge Quantity */
+	.patronize p:last-child {
+		top: 35%;
+		right: 0;
+	}
+	/* Fast Delivery */
+	.patronize p:nth-child(4) {
+		top: 70%;
+		left: 0;
+	}
+	/* Best Quality */
+	.patronize p:nth-child(5) {
+		top: 22%;
+		left: 30%;
+	}
+	/* Natural Ingredients */
+	.patronize p:nth-child(6) {
+		bottom: 12%;
+		left: 60%;
+	}
+
+	.quote {
+		font-size: 2rem;
+		line-height: 1.4;
+		padding: 0 3rem;
+		margin: 4rem 0;
 	}
 }
 
@@ -277,6 +314,41 @@
 		flex-direction: column;
 		justify-content: space-evenly;
 	}
+	.patronize h3 {
+		font-size: 2rem;
+	}
+	.imageContainer {
+		width: 400px;
+		height: 400px;
+		margin: 6rem 0;
+	}
+
+	/* Huge Quantity */
+	.patronize p:last-child {
+		top: 32%;
+		right: 0;
+	}
+	/* Fast Delivery */
+	.patronize p:nth-child(4) {
+		top: 75%;
+		left: 0;
+	}
+	/* Best Quality */
+	.patronize p:nth-child(5) {
+		top: 28%;
+		left: 30%;
+	}
+	/* Natural Ingredients */
+	.patronize p:nth-child(6) {
+		bottom: 15%;
+		left: 60%;
+	}
+
+	.quote {
+		font-size: 1.8rem;
+		padding: 0 1rem;
+		margin: 2rem 0 4rem 0;
+	}
 }
 
 @media screen and (max-width: 490px) {
@@ -295,5 +367,41 @@
 
 	.specials {
 		padding: 1rem;
+	}
+	.patronize h3 {
+		font-size: 2.5rem;
+		line-height: 2rem;
+		margin-bottom: 1rem;
+	}
+	.imageContainer {
+		width: 300px;
+		height: 300px;
+		margin: 6rem 0;
+	}
+
+	/* Huge Quantity */
+	.patronize p:last-child {
+		top: 38%;
+		right: 0;
+	}
+	/* Fast Delivery */
+	.patronize p:nth-child(4) {
+		top: 78%;
+		left: 0;
+	}
+	/* Best Quality */
+	.patronize p:nth-child(5) {
+		top: 38%;
+		left: 0;
+	}
+	/* Natural Ingredients */
+	.patronize p:nth-child(6) {
+		bottom: 15%;
+		left: 70%;
+	}
+
+	.quote {
+		font-size: 1.5rem;
+		padding: 0;
 	}
 }
