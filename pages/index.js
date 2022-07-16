@@ -47,7 +47,7 @@ const Home = ({ burgers }) => {
 				</section>
 			</main>
 			<section className={styles.patronize}>
-				<h3>
+				<h3 data-aos="ease-in">
 					{" "}
 					why should you <span>buy?</span>{" "}
 				</h3>

@@ -4,8 +4,10 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 import { ToastContainer } from "react-toastify";
 import { useState, useEffect } from "react";
+
 import Layout from "../components/layout/Layout";
 import "../styles/globals.css";
+
 import "react-toastify/dist/ReactToastify.css";
 import { getTotals } from "../features/cartSlice";
 
