@@ -1,34 +1,113 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Burger UP!
 
-## Getting Started
+#### _Ecommerce Website_
 
-First, run the development server:
+Burger UP! is a fullstack ecommerce website that sells various kinds of burger. Customers can visit the website, choose any burger of their liking, add to cart and place an order.
 
-```bash
-npm run dev
-# or
-yarn dev
+## Tools
+
+The website was built using the following tools and the following reasons:
+
+- **Next JS**: to harness the power of SEO
+- **Redux Toolkit**: for easy global state management
+- **MongoDB**: for creating and storing the data
+- **Toastify**: for easy management of alerts and notifications
+- **CSS**: for styling the website
+
+## Challenges
+
+I encountered a lot of challenges while building this website; mostly regarding the backend. Some of the issues I faced include querying and updating the MongoDB database, extracting my MongoDB connection function to a separate file; which didn't work, Next JS compatibilty with some libraries like AOS (Animate On Scroll) amongst others.
+
+## Features under development
+
+The website is current the Minimum Viable Product (MVP) or version with almost all of the frontend implementation done. However, the backend is still under development and some of the backend features that I'm currently developing are: **login and user authentication**, **querying and updating database for admin** and **database creation for signed up customers.**
+
+## Future Improvements
+
+In the future, I would like to optimize the website for SEO, lightweight and efficiency. It would also be nice to migrate to cloud services like Microsoft Azure or Amazon Web Services.
+
+## Development
+
+#### File Structure
+
+```
+├── README.md
+├── app
+│   └── store.js
+├── assets
+│   ├── burger-wing.png
+│   ├── burger1.svg
+│   ├── burger3.svg
+│   ├── contact.jpg
+│   ├── header.png
+│   ├── header1.jpg
+│   ├── header2.jpg
+│   ├── header3.jpg
+│   ├── header4.jpg
+│   ├── header5.jpg
+│   └── logo.svg
+├── components
+│   ├── burgerCard
+│   │   ├── Burgercard.js
+│   │   └── Burgercard.module.css
+│   ├── footer
+│   │   ├── Footer.js
+│   │   └── Footer.module.css
+│   ├── layout
+│   │   ├── Layout.js
+│   │   └── Layout.module.css
+│   ├── navbar
+│   │   ├── Navbar.js
+│   │   └── Navbar.module.css
+│   └── specialCard
+│       ├── Specialcard.js
+│       └── Specialcard.module.css
+├── features
+│   └── cartSlice.js
+├── next.config.js
+├── package.json
+├── pages
+│   ├── _app.js
+│   ├── api
+│   │   ├── create.js
+│   │   ├── getburger
+│   │   └── updateburger
+│   ├── burger
+│   │   ├── Burger.module.css
+│   │   ├── Burgerdetails.module.css
+│   │   ├── [slug].js
+│   │   └── index.js
+│   ├── cart
+│   │   ├── Cart.module.css
+│   │   └── index.js
+│   ├── contact
+│   │   ├── Contact.module.css
+│   │   └── index.js
+│   ├── create
+│   │   ├── Newburger.module.css
+│   │   └── index.js
+│   ├── getburger
+│   │   ├── Getburger.module.css
+│   │   └── index.js
+│   └── index.js
+├── public
+│   ├── favicon.ico
+│   └── vercel.svg
+├── styles
+│   ├── Home.module.css
+│   └── globals.css
+├── utils
+│   └── mongodbconnect.js
+├── yarn-error.log
+└── yarn.lock
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Credit
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+> Big thanks to Adeola Bada for helping out with code revision and backend development. Check out his profile for some awesome projects and inspiration - https://github.com/codeDeeAi
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## License
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+MIT
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Free Software? Hell Yeah!**

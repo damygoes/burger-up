@@ -17,6 +17,7 @@ store.dispatch(getTotals());
 
 function MyApp({ Component, pageProps }) {
 	const [showChild, setShowChild] = useState(false);
+	// to prevent hydration error
 	useEffect(() => {
 		setShowChild(true);
 	}, []);
