@@ -39,7 +39,7 @@ const Home = ({ burgers }) => {
 						</div>
 					</div>
 					<div className={styles.right}>
-						<Image src={HeaderLogo} />
+						<Image src={HeaderLogo} al="Logo" />
 					</div>
 				</header>
 				<section className={styles.specials}>
@@ -53,7 +53,7 @@ const Home = ({ burgers }) => {
 				</h3>
 				<span> because,</span>
 				<div className={styles.imageContainer}>
-					<Image src={BurgerPNG} layout="fill" />
+					<Image src={BurgerPNG} layout="fill" alt="Burger" />
 				</div>
 				<p>fast delivery</p>
 				<p>best quality</p>

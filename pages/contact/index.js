@@ -23,7 +23,7 @@ const Contact = () => {
 							<input type="email" placeholder="vlockn@gmail.com" required />
 							<label className={styles.inputlabel}>Email</label>
 						</div>
-						<div class="input">
+						<div className="input">
 							{/* <label className={styles.inputlabel}>Message</label> */}
 							<textarea
 								name="message"
