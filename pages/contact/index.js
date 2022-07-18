@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 import Image from "next/image";
 import ContactBurger from "../../assets/contact.jpg";
@@ -6,6 +7,25 @@ import ContactBurger from "../../assets/contact.jpg";
 import styles from "./Contact.module.css";
 
 const Contact = () => {
+	const router = useRouter();
+
+	const [fullName, setFullName] = useState("");
+
+	function handleFormReset() {
+		setFullName("");
+		setEmail("");
+		setMessage("");
+	}
+
+	function handleFormSubmit() {
+		alert(
+			`Thank you for contacting us. We will get back to you shortly, ${fullName}`
+		);
+		setTimeout(() => {
+			router.push("/");
+		}, 100);
+	}
+
 	return (
 		<div className={styles.contact}>
 			<section className={styles.head}>
@@ -16,7 +36,14 @@ const Contact = () => {
 					<p>we&apos;d love to hear from you</p>
 					<form className={styles.cardform}>
 						<div className={styles.input}>
-							<input type="text" placeholder="Alexander Parkinson" required />
+							<input
+								type="text"
+								placeholder="Alexander Parkinson"
+								required
+								onChange={(e) => {
+									setFullName(e.target.value);
+								}}
+							/>
 							<label className={styles.inputlabel}>Full name</label>
 						</div>
 						<div className={styles.input}>
@@ -35,11 +62,19 @@ const Contact = () => {
 							/>
 						</div>
 						<div className={styles.buttoncontainer}>
-							<button type="submit">send</button>
+							<button
+								type="button"
+								onClick={() => {
+									handleFormSubmit();
+								}}
+							>
+								send
+							</button>
 						</div>
 					</form>
 					<div className={styles.forminfo}>
-						prefer email? <a href="#">contact@burgerup.com</a>
+						prefer email?{" "}
+						<a href="mailto: badadamilola@gmail.com ">contact@burgerup.com</a>
 					</div>
 				</section>
 				<section className={styles.right}>

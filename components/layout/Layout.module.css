@@ -1,24 +1,32 @@
 .main {
 	margin: 4rem auto;
 	padding: 4rem 6rem;
-	width: 90%;
 	max-width: 90%;
-	height: 100vh;
+	/* height: 100vh; */
+	/* border: 1px solid red; */
 }
 
 /* Adding media queries */
 /* For middle-sized devices e.g Tablets/bigger phones */
-@media screen and (max-width: 700px) {
+
+@media screen and (max-width: 1050px) {
 	.main {
 		padding: 4rem;
-		margin: 4rem auto;
+		max-width: 100%;
+	}
+}
+@media screen and (max-width: 770px) {
+	.main {
+		padding: 2rem;
+		max-width: 100%;
 	}
 }
 
 /* For mobile devices */
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 490px) {
 	.main {
-		padding: 4rem 2rem;
-		margin: 4rem auto;
+		padding: 4rem 0rem;
+		width: 100%;
+		/* border: 1px solid white; */
 	}
 }

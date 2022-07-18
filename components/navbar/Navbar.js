@@ -103,7 +103,7 @@ const Navbar = () => {
 						<div className={styles.cartnumber}>
 							{" "}
 							<IoBag />{" "}
-							{cart.cartItems.length >= 1 && (
+							{cart.cartItems.length > 0 && (
 								<p className={styles.cartQuantityNumber}> {cart.cartTotalQuantity} </p>
 							)}
 						</div>

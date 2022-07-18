@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { useEffect } from "react";
 
 const initialState = {
 	cartItems: [],
@@ -12,6 +11,9 @@ const cartSlice = createSlice({
 	name: "cart",
 	initialState,
 	reducers: {
+		getCartCount(state, action) {
+			console.log("Counted");
+		},
 		addToCart(state, action) {
 			const burgerIndex = state.cartItems.findIndex(
 				(burger) => burger.slug === action.payload.slug
@@ -29,15 +31,15 @@ const cartSlice = createSlice({
 					position: "top-center",
 					type: "success",
 				});
-				localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+				// localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
 			}
 
-			if (typeof window !== "undefined") {
-				const item = localStorage.getItem("cartItems")
-					? JSON.parse(localStorage.getItem("cartItems"))
-					: [];
-				state.cartItems = item;
-			} // localStorage (aka window.localStorage) is not defined on the server side. That is, window & document are not available on the server. When NextJS server renders components, it tries to access localStorage but can't find it. You'll have to wait until the browser renders it in order to use localStorage. That's why here I use if(typeof window !== "undefined"). The alternative would be to define all localstorage functionality in the useEffect hook so that localstorage can be available once the app and component mounts and then NextJS server can have access to it
+			// if (typeof window !== "undefined") {
+			// 	const item = localStorage.getItem("cartItems")
+			// 		? JSON.parse(localStorage.getItem("cartItems"))
+			// 		: [];
+			// 	state.cartItems = item;
+			// } // localStorage (aka window.localStorage) is not defined on the server side. That is, window & document are not available on the server. When NextJS server renders components, it tries to access localStorage but can't find it. You'll have to wait until the browser renders it in order to use localStorage. That's why here I use if(typeof window !== "undefined"). The alternative would be to define all localstorage functionality in the useEffect hook so that localstorage can be available once the app and component mounts and then NextJS server can have access to it
 		},
 		removeFromCart(state, action) {
 			const newCartItems = state.cartItems.filter(
@@ -83,7 +85,8 @@ const cartSlice = createSlice({
 					type: "info",
 				});
 			}
-			localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+			// cartslice.getCartCount(state, action);
+			// localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
 		},
 		clearCart(state, action) {
 			state.cartItems = [];
@@ -122,6 +125,7 @@ export const {
 	increaseCartQuantity,
 	clearCart,
 	getTotals,
+	getCartCount,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

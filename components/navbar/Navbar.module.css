@@ -286,6 +286,18 @@
 }
 /* Tablet Devices  - any size below 700px will be affected by this query */
 @media screen and (max-width: 650px) {
+	.header {
+		padding: 2rem;
+	}
+	.logo {
+		width: 4rem;
+		height: 4rem;
+		margin-left: 1rem;
+	}
+	.logo::before {
+		font-size: 1.5rem;
+	}
+
 	.iconContainer button {
 		display: none;
 	}
@@ -322,8 +334,16 @@
 	}
 }
 /* Mobile Devices  - any size below 550px will be affected by this query */
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 450px) {
 	.header {
 		padding: 2rem;
+	}
+	.logo {
+		width: 4rem;
+		height: 4rem;
+		margin-left: 1rem;
+	}
+	.logo::before {
+		font-size: 1.5rem;
 	}
 }
