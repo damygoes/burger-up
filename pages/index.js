@@ -15,7 +15,7 @@ const Home = ({ burgers }) => {
 			<Head>
 				<meta charset="UTF-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-				<meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
+				<meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>
 				<meta name="description" content="Burger Shop designed with NextJS" />
 				<title>Burger UP | Best Burger Shop in Town</title>
 				<link rel="icon" href="/favicon.ico" />
@@ -39,7 +39,7 @@ const Home = ({ burgers }) => {
 						</div>
 					</div>
 					<div className={styles.right}>
-						<Image src={HeaderLogo} al="Logo" />
+						<Image src={HeaderLogo} alt="Logo" />
 					</div>
 				</header>
 				<section className={styles.specials}>
