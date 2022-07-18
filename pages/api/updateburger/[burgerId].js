@@ -5,8 +5,8 @@ export default async function handler(req, res) {
 		const replacementData = req.body;
 		const { burgerId } = req.query;
 		const client = await MongoClient.connect(
-			`mongodb+srv://vercel-admin-user:KwoRI4n9DZHMzRkz@cluster0.nf34c.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
-			// `mongodb+srv://damygoes:${process.env.DB_PASSWORD}@cluster0.nf34c.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
+			// `mongodb+srv://vercel-admin-user:KwoRI4n9DZHMzRkz@cluster0.nf34c.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
+			`mongodb+srv://damygoes:${process.env.DB_PASSWORD}@cluster0.nf34c.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
 		);
 		const db = client.db();
 		const burgerCollection = db.collection("burger");
