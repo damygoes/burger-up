@@ -28,7 +28,7 @@ const Home = ({ burgers }) => {
 						<h1>
 							Fresh & Tasty <span>everytime!</span>{" "}
 						</h1>
-						<p>The best burger place in town. Let's Burger UP!</p>
+						<p>The best burger place in town. Let&apos;s Burger UP!</p>
 						<div className={styles.cta}>
 							<Link href={"/burger"}>
 								<button type="button">order now</button>
@@ -62,7 +62,7 @@ const Home = ({ burgers }) => {
 			</section>
 			<blockquote className={styles.quote}>
 				At the base level, a burger is a piece of meat and a bun with something on
-				it. It's simple but it makes a lot of people happy.
+				it. It&apos;s simple but it makes a lot of people happy.
 			</blockquote>
 		</div>
 	);

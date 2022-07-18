@@ -5,7 +5,7 @@ import connectToMongoDB from "../../utils/mongodbconnect";
 
 import styles from "./Getburger.module.css";
 
-const getBurger = () => {
+const GetBurger = () => {
 	const [searchInput, setSearchInput] = useState("");
 	const [returnedData, setReturnedData] = useState([]);
 	const [isEdit, setIsEdit] = useState(false);
@@ -280,4 +280,4 @@ const getBurger = () => {
 // 	};
 // }
 
-export default getBurger;
+export default GetBurger;

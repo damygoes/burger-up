@@ -13,7 +13,7 @@ const Contact = () => {
 			</section>
 			<section className={styles.content}>
 				<section className={styles.left}>
-					<p>we'd love to hear from you</p>
+					<p>we&apos;d love to hear from you</p>
 					<form className={styles.cardform}>
 						<div className={styles.input}>
 							<input type="text" placeholder="Alexander Parkinson" required />
