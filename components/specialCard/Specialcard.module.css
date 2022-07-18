@@ -108,6 +108,11 @@
 	}
 }
 @media screen and (max-width: 490px) {
+	.container {
+		margin: 1rem;
+		max-width: 18rem;
+	}
+
 	.detail h4 + div {
 		width: 100%;
 		justify-content: space-between;

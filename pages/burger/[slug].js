@@ -62,12 +62,11 @@ const BurgerDetails = ({ burger }) => {
 							</div>
 						</div>
 					</div>
-
-					<div className={styles.actions}>
-						<p> ${burger.price} </p>
-						<button onClick={() => handleAddToCart(burger)}>buy now</button>
-					</div>
 				</div>
+			</div>
+			<div className={styles.actions}>
+				<p> ${burger.price} </p>
+				<button onClick={() => handleAddToCart(burger)}>buy now</button>
 			</div>
 		</div>
 	);
